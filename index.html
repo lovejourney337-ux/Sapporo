@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4EFE6">
+<title>삿포로 · 2026.12.12–12.17</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Caveat:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F4EFE6; --sheet:#FBF7F0; --ink:#2B211C; --ink-2:#6B5B4F;
+  --rule:#E3D8C7; --rule-2:#CDBFAA;
+  --ai:#5E6E50; --ai-ink:#4E5C42; --ai-soft:#E7EADF; --on-ai:#FBF7F0;
+  --kin:#D8BC74; --kin-soft:#F3E7C6; --kin-ink:#6B4F1D;
+  --ver:#B8401F; --on-ver:#FBF7F0;
+  --sage:#A9B59A; --butter:#EED9A0; --choc:#2B211C;
+  --warn-soft:#F4DED4; --warn-ink:#8E3216;
+  --note:#F6EBC8; --note-line:#E6D7A6; --tape:#A9B59A;
+  --case:#E9D9BC; --case-rib:#DECCA9; --case-edge:#8C6E44;
+  --red:#B8401F; --dot:rgba(43,33,28,.06); --mtn:#EAE1D1;
+  --shadow:0 16px 30px rgba(120,95,70,.18);
+  --shadow-s:0 6px 16px rgba(120,95,70,.12);
+  --f:"IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif;
+  --fd:"Hahmlet","IBM Plex Sans KR",serif;
+  --fc:"Caveat",cursive;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#1D1713; --sheet:#272019; --ink:#F1E7DA; --ink-2:#C2B09E;
+    --rule:#3B3028; --rule-2:#54453A;
+    --ai:#B9C6A8; --ai-ink:#CAD5BB; --ai-soft:#2F3529; --on-ai:#1D1713;
+    --kin:#D9C07E; --kin-soft:#3A3121; --kin-ink:#EED9A0;
+    --ver:#DE7454; --on-ver:#1D1713; --sage:#7F8C70; --butter:#BFA86C; --choc:#F1E7DA;
+    --warn-soft:#3B241A; --warn-ink:#F0B193; --note:#332B1D; --note-line:#43392A; --tape:#5E6B52;
+    --case:#3A3024; --case-rib:#43382B; --case-edge:#BFA270; --red:#E27B5C;
+    --dot:rgba(241,231,218,.05); --mtn:#2A231C;
+    --shadow:0 16px 30px rgba(0,0,0,.35); --shadow-s:0 6px 16px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#1D1713; --sheet:#272019; --ink:#F1E7DA; --ink-2:#C2B09E;
+  --rule:#3B3028; --rule-2:#54453A;
+  --ai:#B9C6A8; --ai-ink:#CAD5BB; --ai-soft:#2F3529; --on-ai:#1D1713;
+  --kin:#D9C07E; --kin-soft:#3A3121; --kin-ink:#EED9A0;
+  --ver:#DE7454; --on-ver:#1D1713; --sage:#7F8C70; --butter:#BFA86C; --choc:#F1E7DA;
+  --warn-soft:#3B241A; --warn-ink:#F0B193; --note:#332B1D; --note-line:#43392A; --tape:#5E6B52;
+  --case:#3A3024; --case-rib:#43382B; --case-edge:#BFA270; --red:#E27B5C;
+  --dot:rgba(241,231,218,.05); --mtn:#2A231C;
+  --shadow:0 16px 30px rgba(0,0,0,.35); --shadow-s:0 6px 16px rgba(0,0,0,.3);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);font-family:var(--f);font-size:15px;line-height:1.55;
+  background-color:var(--paper);
+  background-image:radial-gradient(var(--dot) 1px,transparent 1.3px);
+  background-size:5px 5px;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font-family:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none;padding:0;text-align:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--fd);font-weight:800;letter-spacing:-.02em;word-break:keep-all;overflow-wrap:break-word}
+p{margin:0}
+.place,.ticket-sub,.spt .nm,.spt .nt,.list .tx,.kv,.bitem .bn,.bitem .bm,.memo-line,.alt,.empty,.exp .nm2,.tile .lab,.th-top,.th-meta,.confirmcard h3,.fold .stitle{word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--ai-ink)}
+svg{display:block}
+.tnum{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;letter-spacing:.08em;font-weight:500;color:var(--ink-2);text-transform:uppercase}
+.wrap{
+  max-width:520px;margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left));
+  padding-right:max(20px,env(safe-area-inset-right));
+  padding-bottom:calc(110px + env(safe-area-inset-bottom));
+}
+.screen{display:none}
+.screen.on{display:block}
+
+/* ---------- (a) pill / buttons ---------- */
+.pill{
+  height:44px;padding:0 16px;border:1.5px solid var(--ink);border-radius:999px;
+  background:var(--sheet);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;
+  white-space:nowrap;
+}
+.btn{
+  min-height:52px;border-radius:999px;font-weight:600;font-size:15px;padding:0 18px;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+}
+.btn-ghost{border:1.5px solid var(--ink);background:var(--sheet);color:var(--ink)}
+.btn-ver{background:var(--ver);color:var(--on-ver);flex:1}
+.btn-choc{background:var(--choc);color:var(--paper);border-radius:12px;min-height:46px;font-size:14px;padding:0 14px;display:inline-flex;align-items:center;gap:6px}
+.btn:disabled,.btn-ghost:disabled{opacity:.4}
+button:focus-visible,summary:focus-visible,a:focus-visible,.input:focus-visible{outline:2px solid var(--ver);outline-offset:2px}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 6px}
+.topbar .tl{min-width:0}
+.topbar .tl .d{font-size:11px;letter-spacing:.1em;color:var(--ink-2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- (c) stamps nav ---------- */
+.stamps{
+  position:sticky;top:0;z-index:22;display:flex;overflow-x:auto;scrollbar-width:none;
+  background:var(--paper);padding:10px 2px 10px;margin:0 -2px;
+}
+.stamps::-webkit-scrollbar{display:none}
+.swrap{position:relative;flex:0 0 auto;padding-right:22px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.swrap:last-child{padding-right:0}
+.swrap::after{content:"";position:absolute;right:1px;top:28px;width:20px;border-top:2px dotted var(--rule-2)}
+.swrap:last-child::after{display:none}
+.stamp{
+  position:relative;width:56px;height:56px;border:2px solid var(--ink);border-radius:50%;
+  background:var(--sheet);box-shadow:0 4px 0 var(--rule-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding-bottom:6px;
+  transition:transform .22s ease-out,width .22s ease-out,height .22s ease-out,background .22s ease-out;
+}
+.stamp .d{font-family:var(--fd);font-weight:800;font-size:12px;line-height:1}
+.stamp .p{font-size:9px;line-height:1.15;color:var(--ink-2);max-width:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stamp.on{background:var(--ver);border-color:var(--ver);color:var(--on-ver);transform:rotate(-6deg)}
+.stamp.on .p{color:var(--on-ver);opacity:.85}
+.stamp .nowtag{
+  position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
+  background:var(--ver);color:var(--on-ver);font-size:9px;font-weight:700;letter-spacing:.04em;
+  padding:1px 5px;border-radius:999px;border:1px solid var(--paper);
+}
+.sdate{font-size:11px;color:var(--ink-2);line-height:1.1}
+.stamps.compact{padding:6px 2px}
+.stamps.compact .stamp{width:44px;height:44px;transform:none}
+.stamps.compact .stamp .p{display:none}
+.stamps.compact .stamp.on{transform:rotate(-4deg)}
+.stamps.compact .swrap{padding-right:14px;gap:0}
+.stamps.compact .swrap::after{top:22px;width:12px}
+.stamps.compact .sdate{display:none}
+.stamps.compact .stamp .nowtag{bottom:-5px}
+
+/* ---------- (d) ticket ---------- */
+.ticket{background:var(--sheet);border-radius:16px;box-shadow:var(--shadow);margin:4px 0 22px}
+.ticket-head{padding:16px 20px 20px;border-radius:16px 16px 0 0;color:#2B211C}
+.ticket-head.odd{background:var(--sage)}
+.ticket-head.even{background:var(--butter)}
+.th-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12px;letter-spacing:.06em;font-weight:600}
+.ticket-head h2{font-size:26px;line-height:1.2;margin:6px 0 6px;color:#2B211C}
+.ticket-sub{font-size:13.5px;line-height:1.5;color:#2B211C;opacity:.88}
+.th-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.04em}
+.th-meta span{background:rgba(43,33,28,.12);padding:3px 9px;border-radius:999px}
+.perf{position:relative;height:2px;border-top:2px dashed var(--rule-2);margin:0 22px}
+.perf::before,.perf::after{content:"";position:absolute;top:-13px;width:22px;height:22px;border-radius:50%;background:var(--paper)}
+.perf::before{left:-33px}
+.perf::after{right:-33px}
+
+/* timeline */
+.timeline{padding:4px 20px 2px}
+.trow{display:grid;grid-template-columns:64px 1fr}
+.trow-time{padding:14px 12px 12px 0;text-align:right}
+.tt{font-family:var(--fd);font-weight:700;font-size:15px;line-height:1.15}
+.trow-time .tag{margin-top:6px;display:inline-block}
+.trow-body{position:relative;padding:13px 0 15px 18px;border-left:1px solid var(--rule)}
+.dot{position:absolute;left:-5px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--sheet);border:2px solid var(--ink)}
+.dot.stay{background:var(--kin)}
+.dot.first{background:var(--ver);border-color:var(--ver)}
+.place{font-weight:600;font-size:15.5px;line-height:1.4}
+.move{font-size:13.5px;color:var(--ai-ink);margin-top:2px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.rowmore{margin-top:6px}
+.rowmore>summary{
+  list-style:none;display:inline-flex;align-items:center;gap:5px;min-height:44px;
+  font-size:12px;color:var(--ink-2);font-weight:600;padding-right:6px;
+}
+.rowmore>summary::-webkit-details-marker{display:none}
+.rowmore>summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .22s ease-out}
+.rowmore[open]>summary::after{transform:rotate(-135deg) translateY(-1px)}
+.memo-line{font-size:13px;color:var(--ink);margin-top:2px}
+.phrase{margin-top:9px;padding:8px 11px;background:var(--ai-soft);border-radius:12px}
+.phrase .jp{font-weight:600;font-size:14px;color:var(--ai-ink)}
+.phrase .pron{font-size:12.5px;color:var(--ai-ink)}
+.alt{font-size:12.5px;color:var(--warn-ink);margin-top:8px;line-height:1.5}
+.alt b{font-weight:700}
+
+/* hotel box in ticket */
+.hotelbox{margin:6px 20px 18px;border:1.5px dashed var(--rule-2);border-radius:12px;padding:12px 14px}
+.hotelbox .lbl{font-size:11px;letter-spacing:.08em;color:var(--ink-2);font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hotelbox .nm{font-family:var(--fd);font-weight:700;font-size:16px;margin-top:3px}
+.hotelbox .sub{font-size:12.5px;color:var(--ink-2);margin-top:3px}
+
+/* ---------- (f) tags ---------- */
+.tag{
+  display:inline-block;font-size:11px;letter-spacing:.08em;border:1.5px solid var(--ink);
+  border-radius:4px;padding:1px 5px;line-height:1.5;font-weight:600;
+}
+.tag.eat{border-color:var(--ver);color:var(--ver)}
+.tag.stay{background:var(--butter);border-color:var(--butter);color:#2B211C}
+.tag.see{background:var(--sage);border-color:var(--sage);color:#2B211C}
+.tag.move{background:var(--choc);border-color:var(--choc);color:var(--paper)}
+
+/* ---------- (g) badges ---------- */
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;line-height:1.5;letter-spacing:.02em}
+.badge.pass,.badge.ticket{background:var(--ai);color:var(--on-ai)}
+.badge.ic{border:1.5px solid var(--ai);color:var(--ai-ink)}
+.badge.cash{background:var(--warn-soft);color:var(--warn-ink)}
+.badge.card{border:1px solid var(--rule-2);color:var(--ink-2)}
+.badge.free{background:var(--kin-soft);color:var(--kin-ink)}
+.badge.closed{border:1px dashed var(--rule-2);color:var(--ink-2)}
+.badge.unv{background:var(--warn-soft);color:var(--warn-ink)}
+.badge.done{background:var(--ai-soft);color:var(--ai-ink)}
+.badge.res{border:1.5px solid var(--ai);color:var(--ai-ink)}
+.badge.warn{background:var(--warn-soft);color:var(--warn-ink)}
+
+/* ---------- (h) foldable card ---------- */
+.fold{background:var(--sheet);border-radius:16px;border:1px solid var(--rule);box-shadow:var(--shadow-s)}
+.fold>summary{
+  list-style:none;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;cursor:pointer;
+}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary .chev{margin-left:auto;width:8px;height:8px;border-right:1.5px solid var(--ink-2);border-bottom:1.5px solid var(--ink-2);transform:rotate(45deg) translateY(-2px);transition:transform .22s ease-out}
+.fold[open]>summary .chev{transform:rotate(-135deg) translateY(-2px)}
+.fold .fbody{padding:0 16px 16px;border-top:1px solid var(--rule);margin-top:0}
+.fold>summary .stitle{font-family:var(--fd);font-weight:700;font-size:16px}
+
+/* ---------- spots ---------- */
+.dayhead{margin:2px 0 12px}
+.dayhead .k{font-size:11px;letter-spacing:.1em;color:var(--ink-2);font-weight:600}
+.dayhead h2{font-size:22px;margin-top:2px}
+.grp{margin-bottom:20px}
+.grp h3{font-size:12px;letter-spacing:.1em;color:var(--ink-2);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.grp h3::after{content:"";flex:1;border-top:1px solid var(--rule)}
+.spt{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:11px 13px;margin-bottom:8px}
+.spt .top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.spt .nm{font-weight:600;font-size:15px;line-height:1.35}
+.spt .bd{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;justify-content:flex-end}
+.spt .nt{font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.45}
+.empty{background:var(--sheet);border:1px dashed var(--rule-2);border-radius:12px;padding:16px;font-size:13px;color:var(--ink-2);text-align:center}
+
+/* ---------- (b)(i)-(k) home ---------- */
+.postcard{
+  position:relative;background:var(--sheet);padding:10px 10px 16px;border-radius:6px;
+  transform:rotate(-1.2deg);box-shadow:var(--shadow);margin:18px 0 22px;
+}
+.tape{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  width:100px;height:26px;opacity:.85;
+  background:repeating-linear-gradient(115deg,var(--sage) 0 7px,rgba(255,255,255,.35) 7px 13px);
+}
+.photo{position:relative;height:clamp(240px,calc(100svh - 470px),420px);background:var(--mtn);border-radius:3px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.94) saturate(.85) sepia(.08)}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink-2)}
+.postmark{position:absolute;top:14px;right:12px;width:64px;height:64px;opacity:.55}
+.photobtn{
+  position:absolute;right:10px;bottom:10px;height:38px;padding:0 14px;border-radius:999px;
+  background:rgba(251,247,240,.82);color:#2B211C;font-size:12.5px;font-weight:600;
+  display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(43,33,28,.15);cursor:pointer;
+}
+.caption{padding:14px 8px 0}
+.hand{font-family:var(--fc);font-size:30px;color:var(--ver);transform:rotate(-3deg);line-height:1.1;display:inline-block}
+.caption h1{font-size:30px;margin-top:2px}
+.capdiv{border-top:1.5px dashed var(--rule-2);margin:10px 0 10px}
+.caprow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.dday{background:var(--butter);color:#2B211C;font-size:13px;font-weight:700;border-radius:999px;padding:4px 11px;letter-spacing:.02em}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.tile{border-radius:16px;padding:13px 14px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;border:none;text-align:left;transition:box-shadow .18s ease-out}
+.tile.todo{background:var(--sage);color:#2B211C}
+.tile.pack{background:var(--butter);color:#2B211C}
+.tile.on{box-shadow:0 0 0 2px var(--ink)}
+.tile .lab{font-size:12px;font-weight:600;letter-spacing:.04em}
+.tile .num{font-family:var(--fd);font-weight:800;font-size:30px;line-height:1}
+.tile .num small{font-size:15px;font-weight:700;opacity:.7}
+.pbar{height:6px;border-radius:999px;background:rgba(43,33,28,.22);overflow:hidden}
+.pbar i{display:block;height:100%;background:#2B211C}
+.tile .more{font-size:11px;font-weight:600;opacity:.75}
+
+.memo{
+  position:relative;background:var(--note);border-radius:12px;padding:22px 14px 14px;
+  transform:rotate(-.35deg);box-shadow:var(--shadow-s);
+  background-image:repeating-linear-gradient(to bottom,transparent 0 27px,var(--note-line) 27px 28px);
+  background-position:0 22px;
+}
+.memo::before{
+  content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  width:74px;height:20px;background:var(--tape);opacity:.9;
+}
+.memo h3{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.case{
+  position:relative;background:var(--case);border:2px solid var(--case-edge);border-radius:22px;
+  padding:16px 14px 22px;margin-top:16px;
+  background-image:repeating-linear-gradient(to right,transparent 0 46px,var(--case-rib) 46px 48px);
+}
+.case::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:96px;height:30px;border:6px solid var(--case-edge);border-bottom:none;border-radius:12px 12px 0 0}
+.case .wheel{position:absolute;bottom:-11px;width:20px;height:20px;border-radius:50%;background:var(--case-edge)}
+.case .wheel.w1{left:26px}
+.case .wheel.w2{right:26px}
+.case .inner{position:relative;background:var(--sheet);border:1px dashed var(--rule-2);border-radius:12px;padding:10px 12px 12px}
+.casetag{
+  position:absolute;top:-10px;right:8px;transform:rotate(6deg);background:var(--sheet);border:1px solid var(--case-edge);
+  border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700;line-height:1.4;color:var(--ink);z-index:2;text-align:center;
+}
+.case h3{font-size:17px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;align-items:flex-start;gap:9px;border-bottom:1px solid rgba(43,33,28,.08);min-height:44px}
+.list li:last-child{border-bottom:none}
+.chk{
+  flex:0 0 auto;width:22px;height:22px;margin-top:11px;border:1.5px solid var(--ink-2);border-radius:5px;
+  background:transparent;display:flex;align-items:center;justify-content:center;
+}
+.chk svg{width:14px;height:14px;stroke:var(--on-ai);stroke-width:2.2;fill:none;opacity:0}
+.chk.on{background:var(--ai);border-color:var(--ai)}
+.chk.on svg{opacity:1}
+.list .tx{flex:1;padding:10px 0 10px;font-size:14px;line-height:1.45;word-break:break-word}
+.list .tx.done{color:var(--ink-2);text-decoration:line-through}
+.list .del{flex:0 0 auto;width:32px;height:32px;margin-top:6px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);border-radius:50%}
+.list .del svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.6;fill:none}
+.list.pack .chk.on{background:var(--red);border-color:var(--red)}
+.list.pack .tx.done{color:var(--red);text-decoration:line-through}
+.addrow{display:flex;gap:8px;margin-top:10px;align-items:center}
+.addrow .input{min-height:44px;font-size:16px;flex:1}
+.addbtn{width:44px;height:44px;flex:0 0 auto;border-radius:12px;background:var(--choc);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
+
+/* ---------- (l) tabbar ---------- */
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;
+  height:calc(72px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+  background:var(--sheet);border-top:1px solid var(--rule);box-shadow:0 -8px 20px rgba(120,95,70,.10);
+}
+.tabbar .tb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;color:var(--ink-2);min-height:44px}
+.tabbar .tb.on{color:var(--ver);font-weight:600}
+.tabbar svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- (m) quick expense ---------- */
+.fab{
+  position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(92px + env(safe-area-inset-bottom));
+  height:48px;padding:0 18px;border-radius:999px;background:var(--ver);color:var(--on-ver);
+  font-weight:600;font-size:14px;display:none;align-items:center;gap:6px;box-shadow:var(--shadow);z-index:38;
+}
+.fab.show{display:inline-flex}
+.sheetwrap{position:fixed;inset:0;z-index:60;display:none}
+.sheetwrap.open{display:block}
+.scrim{position:absolute;inset:0;background:rgba(43,33,28,.45)}
+.sheet{
+  position:absolute;left:0;right:0;bottom:0;background:var(--sheet);
+  border-radius:20px 20px 0 0;padding:16px max(20px,env(safe-area-inset-left)) calc(20px + env(safe-area-inset-bottom));
+  max-height:90svh;overflow:auto;animation:sheetup .22s ease-out;
+}
+@keyframes sheetup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sheet .shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sheet .shead h3{font-size:19px}
+.xbtn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--ink-2);margin-right:-10px}
+.xbtn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none}
+.amtrow{display:flex;align-items:baseline;gap:8px;border-bottom:2px solid var(--ink);padding-bottom:4px;margin-bottom:14px}
+.amtrow .cur{font-size:13px;font-weight:600;color:var(--ink-2)}
+.amtrow input{
+  flex:1;min-width:0;border:none;background:transparent;font-family:var(--fd);font-weight:800;font-size:30px;
+  text-align:right;padding:4px 0;color:var(--ink);
+}
+.amtrow input:focus{outline:none}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.chip{min-height:40px;padding:0 13px;border-radius:999px;border:1.5px solid var(--rule-2);background:var(--sheet);font-size:13.5px;display:inline-flex;align-items:center;gap:4px}
+.chip.on{background:var(--choc);color:var(--paper);border-color:var(--choc)}
+.chip.sm{min-height:34px;padding:0 11px;font-size:12.5px}
+.flabel{font-size:11.5px;letter-spacing:.06em;color:var(--ink-2);font-weight:600;margin-bottom:6px}
+.savebtn{width:100%;min-height:52px;border-radius:14px;background:var(--ver);color:var(--on-ver);font-weight:700;font-size:16px;margin-top:6px}
+.delbtn{width:100%;min-height:48px;border-radius:14px;background:var(--warn-soft);color:var(--warn-ink);font-weight:700;font-size:14px;margin-top:8px}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,10px);
+  background:var(--ink);color:var(--paper);font-size:13px;padding:10px 16px;border-radius:999px;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:88vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- ledger ---------- */
+.btiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.btile{background:var(--sheet);border:1px solid var(--rule);border-radius:16px;padding:12px 13px;box-shadow:var(--shadow-s)}
+.btile .lab{font-size:11.5px;font-weight:600;color:var(--ink-2);letter-spacing:.04em}
+.btile .v{font-family:var(--fd);font-weight:800;font-size:22px;line-height:1.2;margin-top:4px;word-break:break-all}
+.btile .s{font-size:11.5px;color:var(--ink-2);margin-top:2px}
+.btile.over .v{color:var(--warn-ink)}
+.btable{width:100%;border-collapse:collapse;font-size:13.5px}
+.btable th{text-align:left;font-size:11px;letter-spacing:.08em;color:var(--ink-2);font-weight:600;padding:0 0 7px;border-bottom:1px solid var(--ink)}
+.btable th.r,.btable td.r{text-align:right}
+.btable td{padding:9px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+.btable tr:last-child td{border-bottom:none}
+.btable .catn{font-weight:600;font-size:13.5px}
+.bar{height:6px;width:84px;background:var(--rule);border-radius:999px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--ver);border-radius:999px}
+.bar i.over{background:var(--warn-ink)}
+.num{font-family:var(--fd);font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.fxline{font-size:12.5px;color:var(--ink-2);margin:12px 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fxbox{background:var(--ai-soft);border-radius:12px;padding:10px 12px;margin-bottom:14px}
+.fxbox .r{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ai-ink)}
+.fxbox input{min-width:0;flex:1;min-height:40px;border:1.5px solid var(--rule-2);border-radius:10px;background:var(--paper);padding:0 10px;font-size:16px;text-align:right}
+.fxbox .eq{font-family:var(--fd);font-weight:700}
+.expgrp{margin-bottom:12px}
+.expgrp .gh{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:600;color:var(--ink-2);padding:4px 0 6px;border-bottom:1px solid var(--rule-2)}
+.exp{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.exp .l{flex:1;min-width:0}
+.exp .nm2{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.exp .meta{font-size:12px;color:var(--ink-2);margin-top:2px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.exp .amt{font-family:var(--fd);font-weight:700;font-size:14.5px;white-space:nowrap}
+.exp .ops{display:flex;gap:2px;flex:0 0 auto}
+.span{font-size:11.5px;letter-spacing:.08em;color:var(--ink-2);font-weight:600;margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.span::after{content:"";flex:1;border-top:1px solid var(--rule)}
+.tbtn{min-height:32px;padding:0 9px;font-size:12px;color:var(--ink-2);border:1px solid var(--rule-2);border-radius:999px}
+.tbtn.danger{color:var(--warn-ink);border-color:var(--warn-ink);background:var(--warn-soft)}
+.curtot{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:6px 0;border-bottom:1px solid var(--rule)}
+.curtot .n{font-family:var(--fd);font-weight:700}
+
+/* ---------- confirm card (unconfirmed state) ---------- */
+.confirmcard{border:1.5px dashed var(--rule-2);border-radius:16px;padding:14px;margin-bottom:16px;background:var(--sheet)}
+.confirmcard .ch{display:flex;gap:10px;align-items:flex-start}
+.confirmcard .st{flex:0 0 auto;width:26px;height:26px}
+.confirmcard h3{font-size:15.5px;font-weight:700}
+.confirmcard .sum{max-height:132px;overflow:auto;background:var(--paper);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--ink-2);white-space:pre-wrap;margin:10px 0}
+.draftline{font-size:12.5px;color:var(--kin-ink);background:var(--kin-soft);border-radius:10px;padding:9px 11px;margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* ---------- screen 1 ---------- */
+.s1pad{padding-bottom:calc(150px + env(safe-area-inset-bottom))}
+.s1card{position:relative;background:var(--sheet);border:1.5px solid var(--rule-2);border-radius:6px;padding:20px 18px 22px;margin-top:14px;box-shadow:var(--shadow-s)}
+.s1card .hand{font-size:26px}
+.s1card h1{font-size:26px;margin-top:2px}
+.s1guide{font-size:13px;color:var(--ink-2);margin-top:6px}
+.stepdots{display:flex;margin:20px 0 4px}
+.stepdot{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.stepdot .c{width:34px;height:34px;border-radius:50%;border:2px solid var(--rule-2);background:var(--sheet);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:13px;color:var(--ink-2)}
+.stepdot.done .c{border-color:var(--sage);background:var(--sage);color:#2B211C}
+.stepdot.now .c{border-color:var(--ver);background:var(--ver);color:var(--on-ver)}
+.stepdot .n{font-size:11px;color:var(--ink-2)}
+.stepdot.now .n{color:var(--ver);font-weight:600}
+.stepbody{padding-top:16px}
+.step{display:none}
+.step.on{display:block;animation:slidein .24s ease-out}
+.field{margin-bottom:16px}
+.field>label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.input{
+  width:100%;min-height:48px;font-size:16px;padding:10px 12px;border-radius:12px;
+  border:1.5px solid var(--rule-2);background:var(--paper);color:var(--ink);
+}
+textarea.input{min-height:80px;resize:vertical;line-height:1.5}
+.input:focus{outline:2px solid var(--ver);outline-offset:1px;border-color:var(--ver)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.hint{font-size:11.5px;color:var(--ink-2);margin-top:5px}
+.errmsg{font-size:12.5px;color:var(--warn-ink);background:var(--warn-soft);padding:8px 10px;border-radius:8px;margin-top:8px;display:none}
+.errmsg.on{display:block}
+.s1bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:8px;
+  background:var(--sheet);border-top:1px solid var(--rule);
+  padding:10px max(20px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));
+}
+.s1bar .grow{flex:1}
+.panel{animation:slidein .24s ease-out}
+@keyframes slidein{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13.5px}
+.kv:last-of-type{border-bottom:none}
+.kv .k2{color:var(--ink-2);font-weight:600;font-size:12.5px;flex:0 0 auto}
+.bitem{display:flex;gap:10px;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--rule)}
+.bitem:last-child{border-bottom:none}
+.bitem .l{min-width:0}
+.bn{font-size:13.5px;font-weight:600;line-height:1.4}
+.bm{font-size:11.5px;color:var(--ink-2);line-height:1.45;margin-top:2px}
+.bitem .br{flex:0 0 auto;text-align:right}
+.ba{font-family:var(--fd);font-weight:700;font-size:13px;white-space:nowrap;margin-bottom:4px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .postcard,.memo,.stamp.on,.casetag,.hand{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div class="screen" id="screen1">
+  <div class="wrap s1pad">
+    <div style="padding-top:16px">
+      <div class="eyebrow">TRIP PLANNER</div>
+      <div class="s1card">
+        <div class="hand">삿포로, 눈 오는 오타루</div>
+        <h1>여행 플래너</h1>
+        <p class="s1guide">다 입력하면 일정 화면으로 넘어가요</p>
+      </div>
+      <div class="stepdots" id="stepdots"></div>
+      <div class="stepbody">
+        <div class="step" data-step="1">
+          <div class="field">
+            <label>여행지</label>
+            <div class="chips" id="destChips">
+              <button class="chip" data-act="s1-dest" data-v="삿포로">삿포로</button>
+              <button class="chip" data-act="s1-dest" data-v="미정">아직 미정</button>
+            </div>
+            <div id="moodWrap" style="margin-top:12px;display:none">
+              <div class="flabel">원하는 분위기 (최대 3개)</div>
+              <div class="chips" id="moodChips"></div>
+            </div>
+            <div class="errmsg" id="err1">여행지를 고르거나, 미정이면 분위기를 1개 이상 골라 주세요.</div>
+          </div>
+          <div class="field">
+            <label for="f_airport">출발 공항</label>
+            <input class="input" id="f_airport" type="text" value="인천" autocomplete="off">
+          </div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="field">
+            <label>날짜 (최대 21일)</label>
+            <div class="two">
+              <input class="input" id="f_start" type="date">
+              <input class="input" id="f_end" type="date">
+            </div>
+            <div class="errmsg" id="err2">시작·종료 날짜와 인원을 넣어 주세요.</div>
+          </div>
+          <div class="field">
+            <label for="f_people">인원</label>
+            <input class="input" id="f_people" type="number" min="1" max="10" inputmode="numeric" value="2">
+          </div>
+          <div class="field">
+            <label for="f_budget">1인 예산 (선택 · 원)</label>
+            <input class="input" id="f_budget" type="number" step="10000" inputmode="numeric" placeholder="예: 1800000">
+          </div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="field">
+            <label for="f_flight">항공 (편명·시각)</label>
+            <input class="input" id="f_flight" type="text" autocomplete="off" placeholder="예: 파라타항공 12/12 10:05 ICN → 12:45 CTS">
+          </div>
+          <div class="field">
+            <label for="f_hotel">숙소 (이름)</label>
+            <input class="input" id="f_hotel" type="text" autocomplete="off" placeholder="예: 토큐 스테이 삿포로">
+          </div>
+          <div class="field">
+            <div class="flabel">숙소 식사 포함</div>
+            <div class="chips" id="mealChips"></div>
+          </div>
+          <div class="field">
+            <div class="flabel">숙소 결제 방식</div>
+            <div class="chips" id="payChips"></div>
+          </div>
+          <div class="field">
+            <label for="f_pass">티켓·패스</label>
+            <input class="input" id="f_pass" type="text" autocomplete="off" placeholder="예: 삿포로 지하철 1일권(도니치카)">
+          </div>
+        </div>
+        <div class="step" data-step="4">
+          <div class="field">
+            <div class="flabel">휴대폰</div>
+            <div class="chips" id="phoneChips"></div>
+          </div>
+          <div class="field">
+            <label for="f_benefit">항공·카드 혜택</label>
+            <input class="input" id="f_benefit" type="text" autocomplete="off" placeholder="예: 라운지 1회, 해외 결제 2% 적립">
+          </div>
+          <div class="field">
+            <label for="f_want">꼭 하고 싶은 것</label>
+            <textarea class="input" id="f_want" placeholder="예: 눈 오는 노천탕, 오타루 스누피 빌리지"></textarea>
+          </div>
+          <div class="field">
+            <div class="flabel">피하고 싶은 것 (복수 선택)</div>
+            <div class="chips" id="avoidChips"></div>
+            <input class="input" id="f_avoidEtc" type="text" placeholder="직접 입력" style="margin-top:8px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="s1bar">
+    <button class="btn btn-ghost" data-act="s1-prev">이전</button>
+    <button class="btn btn-ghost" data-act="s1-skip" id="skipBtn">건너뛰기</button>
+    <button class="btn btn-ver grow" data-act="s1-next" id="nextBtn">다음</button>
+  </div>
+</div>
+
+<div class="screen on" id="screen2">
+  <div class="wrap">
+    <header class="topbar">
+      <div class="tl">
+        <div class="eyebrow" id="topLabel">SAPPORO</div>
+        <div class="d tnum" id="topDates">2026.12.12 – 12.17 · 2명</div>
+      </div>
+      <button class="pill" data-act="edit-trip">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        여행 정보 수정
+      </button>
+    </header>
+    <main id="panel"></main>
+  </div>
+  <button class="fab" data-act="quick-open" id="fab">+ 지출</button>
+  <nav class="tabbar" id="tabbar" aria-label="여행 앱 탭"></nav>
+</div>
+
+<div class="sheetwrap" id="sheetwrap">
+  <div class="scrim" data-act="quick-close"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="지출 기록"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+/* ===== 2026-12 삿포로 · 확정 데이터 (노션 `삿포로` 페이지 + 11-15 확인값) ===== */
+var FX = { jpy100: 834.37, date: "2026-11-16", note: "한국수출입은행 매매기준율 고시" };
+function yen2krw(y){ return Math.round(y * FX.jpy100 / 100); }
+
+var TRIP = {
+  dest: "삿포로", destEn: "SAPPORO", start: "2026-12-12", end: "2026-12-17",
+  people: 2, perPerson: 1800000, airport: "인천", mood: ["미식", "온천"],
+  flight: "파라타항공 12/12 10:05 ICN → 12:45 CTS / 12/17 14:05 CTS → 17:30 ICN",
+  hotel: "토큐 스테이 삿포로", meals: "조식 미포함", hotelPay: "카드",
+  pass: "삿포로 지하철 1일권(도니치카)",
+  phone: "아이폰", benefits: "",
+  want: "눈 오는 노천탕, 오타루 스누피 빌리지, 크리스마스 마켓",
+  avoid: ["긴 줄", "이른 기상"],
+  confirmed: true
+};
+
+var HOTEL = {
+  name: "토큐 스테이 삿포로",
+  map: "https://www.google.com/maps/search/?api=1&query=Tokyu+Stay+Sapporo",
+  checkin: "15:00", checkout: "11:00"
+};
+
+var DAYS = [
+  {
+    id: 1, date: "2026-12-12", wd: "SAT", abbr: "D1", place: "오도리",
+    title: "도착 · 방한 장비 · 크리스마스 마켓",
+    sub: "12:45 신치토세 도착, 짐 맡기고 스프카레 오픈런 → 저녁은 오도리 마켓",
+    rows: [
+      { k:"move", t:"12:45", place:"신치토세공항 → 삿포로역 · 빠르게어포트", move:"37분 · ¥1,230", pay:"ticket",
+        note:"공항 B1 JR역 직결. 자유석 기준, u시트는 +¥1,000.",
+        phrase:"札幌まで行きますか", pron:"삿포로마데 이키마스카",
+        alt:"12분 간격 — 다음 편 13:04 → 13:41. 늦어도 14:30까지 시내.", unv:false },
+      { k:"stay", t:"13:30", place:"토큐 스테이 삿포로 · 짐 맡기기", move:"삿포로역 도보 7분", pay:"card",
+        note:"체크인 15:00. 프런트에 캐리어 맡기고 빈손으로 나갑니다.",
+        phrase:"荷物を預かってもらえますか", pron:"니모쓰오 아즈캇테 모라에마스카",
+        alt:"만실이면 삿포로역 대형 코인로커(¥700)", unv:false },
+      { k:"eat", t:"14:30", place:"스시 돈부리", move:"지하보도 도보 12분 · 11:30–22:00 무휴", pay:"card",
+        note:"스스키노 남3서5. 15시는 대기 거의 0. ¥1,000–2,000.",
+        phrase:"二人です", pron:"후타리데스",
+        alt:"대기 있으면 오쿠시바쇼텐 파르타운 B1(10:40 도착) 또는 오도리 奥'clock.", unv:false },
+      { k:"see", t:"15:20", place:"삿포로 팩토리 — 방한 장비", move:"10:00–20:00 · 한 건물에서 해결", pay:"card",
+        note:"스노우피크 1F · 노스페이스 B1 · 몽벨 3F. 모자·장갑·신발 여기서.",
+        phrase:"帽子と手袋を探しています", pron:"보-시토 테부쿠로오 사가시테이마스",
+        alt:"시간 오버면 삿포로역 스텔라플레이스·다이마루 아웃도어 층.", unv:false },
+      { k:"eat", t:"17:00", place:"수프카레 가라쿠 본점", move:"번호표 16:50 → 오픈런 1회전", pay:"cash",
+        note:"11:30–15:30 / 17:00–21:00 매일. 스프 소진 시 조기 종료. ¥1,300–2,000.",
+        phrase:"辛さは普通で", pron:"카라사와 후쓰-데",
+        alt:"번호표 마감이면 오쿠시바쇼텐 奥'clock (14시 이후 한산).", unv:true },
+      { k:"see", t:"18:20", place:"오도리 뮌헨 크리스마스 마켓", move:"도보 10분 · 11:00–21:00 (LO20:45)", pay:"cash",
+        note:"오도리 1·2초메, 11/20–12/25. 글뤼바인 잔 디포짓 ¥1,000.",
+        phrase:"グリューワインを一つ", pron:"구류-바인오 히토쓰",
+        alt:"비 오면 19:30에 접고 네모토 리쿼로.", unv:false },
+      { k:"eat", t:"20:00", place:"네모토 리쿼 → 세이코마트 털기", move:"도보 6분 · 리쿼 LO20:45", pay:"card",
+        note:"COCONO B1 유료 시음·택스프리. 세이코마트에서 첫날 야식·간식.",
+        phrase:"試飲できますか", pron:"시인 데키마스카",
+        alt:"리쿼 마감 후엔 세이코마트 주류 코너(06:00–24:00).", unv:true }
+    ],
+    eat: [
+      { n:"스시 돈부리", tag:"스시", note:"스스키노 남3서5 · 11:30–22:00 무휴 · ¥1,000–2,000 · 15시 대기 0" },
+      { n:"수프카레 가라쿠 본점", tag:"스프카레", cash:true, unv:true, note:"남3동2 B1 · 11:30–15:30 / 17:00–21:00 · 스프 소진 시 조기 종료" },
+      { n:"오쿠시바쇼텐 奥'clock", tag:"스프카레", note:"오도리 시계탑 빌딩 B1 · 가라쿠 번호표 마감 시 대안 · 14시 이후 한산" },
+      { n:"네모토 리쿼", tag:"주류", unv:true, note:"COCONO B1 · 10:00–21:00 (LO20:45) · 유료 시음·택스프리 · COCONO 휴관일 휴무" },
+      { n:"세이코마트 삿포로역점", tag:"편의점", note:"06:00–24:00 · 핫셰프 가츠동·주먹밥·소프트아이스크림" }
+    ],
+    see: [
+      { n:"오도리 뮌헨 크리스마스 마켓", tag:"축제", note:"오도리 1·2초메 · 11/20–12/25 · 11:00–21:00 (LO20:45)" },
+      { n:"삿포로 팩토리", tag:"쇼핑", note:"10:00–20:00 · 스노우피크 1F · 노스페이스 B1 · 몽벨 3F" },
+      { n:"오도리 공원 · 삿포로 TV타워", tag:"관광", note:"마켓과 같은 자리 · 야경은 20시 이후" }
+    ]
+  },
+  {
+    id: 2, date: "2026-12-13", wd: "SUN", abbr: "D2", place: "니조시장",
+    title: "니조시장 아침 · 스시 · 맥주 · 철판",
+    sub: "07시 시장 오픈런, 10시 번호표 뽑고 스누피 → 11시 회전초밥 1회전",
+    rows: [
+      { k:"eat", t:"07:00", place:"사카나야노 다이도코로 · 니조시장", move:"오도리 도보 15분 · 07:00–17:00 (LO16:30)", pay:"cash",
+        note:"07:00 오픈런 1회전. 8시부터 대기, 14시 이후 한산. ¥2,000–3,000.",
+        phrase:"開いてますか", pron:"아이테마스카",
+        alt:"니조시장 안 다른 덮밥집도 07시 오픈. 8시 넘으면 오도리 시장으로.", unv:false },
+      { k:"eat", t:"09:00", place:"머메이드 커피 + 오도리 공원 산책", move:"08:00–18:00 무휴 · 시계탑 5분", pay:"card",
+        note:"삿포로 최우선 카페, 쟈지밀크라테. 아침에 연 거의 유일한 카페.",
+        phrase:"テイクアウトできますか", pron:"테이쿠아우토 데키마스카",
+        alt:"줄 길면 오도리 지하 베이커리에서 테이크아웃.", unv:false },
+      { k:"see", t:"10:05", place:"스누피 타운샵 삿포로", move:"스텔라플레이스 센터 5F · 10:00–20:00", pay:"card",
+        note:"10:00 발권 직후 위층. 10:05–10:50이면 11:00 회전에 딱 맞음.",
+        phrase:"スヌーピーの商品はどこですか", pron:"스누-피-노 쇼-힌와 도코데스카",
+        alt:"사람 많으면 저녁 19시 이후 재방문.", unv:false },
+      { k:"eat", t:"11:00", place:"회전초밥 根室花まる miredo", move:"10:00 번호표 → 11:00 1회전", pay:"card",
+        note:"11:00–22:00. QR 알림, 15분 미복귀 자동 취소. 일요일 낮 토리톤 북8조는 87조라 여기로.",
+        phrase:"二人です", pron:"후타리데스",
+        alt:"번호 밀리면 寿司のなごやか亭 発寒店(일요일 16:30 대기 0).", unv:false },
+      { k:"see", t:"12:40", place:"삿포로 맥주 박물관", move:"지하철 히가시쿠야쿠쇼마에 · 11:00–17:30", pay:"ticket",
+        note:"입장 무료, 시음 유료. 휴관일은 방문 전 재확인.",
+        phrase:"見学できますか", pron:"켄가쿠 데키마스카",
+        alt:"휴관이면 삿포로 팩토리 2차 쇼핑으로 바꿈.", unv:true },
+      { k:"eat", t:"14:20", place:"크리미아 · 동구리 오도리", move:"타누키코지 · 13:00–21:00 무휴", pay:"cash",
+        note:"오후 애매한 시간 = 대기 0. 아이스크림 + 치킨 어묵빵.",
+        phrase:"一つください", pron:"히토쓰 쿠다사이",
+        alt:"비 오면 White Cosy(스텔라 B1) 파르페.", unv:false },
+      { k:"eat", t:"17:30", place:"텟파치 오오도리 · 철판 이자카야", move:"오도리 남2서5 2F · 주말 12:00–24:00", pay:"card",
+        note:"17시대 입장이 가장 쾌적. 전화 011-219-8567. ¥2,000–7,000.",
+        phrase:"二人、予約なしです", pron:"후타리, 요야쿠 나시데스",
+        alt:"만석이면 18시 이전 스스키노 活一鮮, 디저트는 밀크무라 21:00.", unv:true }
+    ],
+    eat: [
+      { n:"사카나야노 다이도코로 니조시장 본점", tag:"카이센동", note:"07:00–17:00 (LO16:30) 무휴 · 07시 오픈런이 최고" },
+      { n:"머메이드 커피 로스터스", tag:"카페", note:"08:00–18:00 무휴 · 쟈지밀크라테" },
+      { n:"根室花まる miredo", tag:"회전초밥", reserve:"번호표 10:00~", note:"11:00–22:00 · 10:00 발권 → 11:00 1회전 · QR 15분 미복귀 취소" },
+      { n:"텟파치 오오도리", tag:"이자카야", reserve:"전화 011-219-8567", note:"주말 12:00–24:00 · 17시대 입장 쾌적" },
+      { n:"밀크무라", tag:"디저트", closed:"월 휴무", note:"13:00–23:00 · 저녁 후 21시 아이스크림바" },
+      { n:"크리미아", tag:"디저트", note:"타누키코지 · 13:00–21:00 무휴" },
+      { n:"동구리 오도리점", tag:"디저트", note:"10:00–21:00 무휴 · 치킨 어묵빵" },
+      { n:"寿司のなごやか亭 発寒店", tag:"회전초밥", note:"11:00–21:00 무휴 · 일요일 16:30 대기 0 · 토리톤 대안" }
+    ],
+    see: [
+      { n:"스누피 타운샵 삿포로", tag:"쇼핑", note:"스텔라플레이스 센터 5F · 10:00–20:00" },
+      { n:"삿포로 맥주 박물관", tag:"관광", unv:true, note:"11:00–17:30 · 시음 유료 · 휴관일 재확인" },
+      { n:"오도리 공원 · 시계탑", tag:"관광", note:"08:10–08:50 산책 · 무료" },
+      { n:"타누키코지 6~7초메", tag:"쇼핑", note:"15:30–17:00 산책 · 골목 상점" },
+      { n:"니조시장", tag:"시장", note:"07:00–17:00 · 일요일 오전이 가장 활기" }
+    ]
+  },
+  {
+    id: 3, date: "2026-12-14", wd: "MON", abbr: "D3", place: "다이마루",
+    title: "다이마루 · 우니동 · 키노토야 · 쿠이테이",
+    sub: "10시 백화점 오픈, 11:30 우니동, 오후 소프트, 저녁은 징기스칸",
+    rows: [
+      { k:"stay", t:"08:30", place:"호텔 조식 → 천천히 준비", move:"10:00 다이마루 오픈에 맞춰", pay:"",
+        note:"조식 미포함이면 편의점·머메이드 커피로 가볍게.",
+        phrase:"", pron:"",
+        alt:"10시 오픈 직후가 가장 한산하니 9:50 도착.", unv:false },
+      { k:"see", t:"10:00", place:"다이마루 삿포로 · 스텔라플레이스", move:"오도리역 직결 · 10:00–20:00", pay:"card",
+        note:"키타카로·르타오 기념품, 키노토야 B1 매장. 면세 카운터는 여권 지참.",
+        phrase:"免税できますか", pron:"멘제이 데키마스카",
+        alt:"면세 줄 길면 삿포로역 스텔라플레이스에서.", unv:false },
+      { k:"eat", t:"11:30", place:"우니 무라카미 삿포로점 · 우니동", move:"삿포로역 앞 B1 · 11:30–14:00 (LO13:30)", pay:"card",
+        note:"예약석 60% — 예약하면 대기 0, 없으면 1시간. 전화 011-290-1000. ¥2,500–5,000.",
+        phrase:"予約したキムです", pron:"요야쿠시타 기무데스",
+        alt:"자리 없으면 스시 돈부리, 저녁은 すぎ乃 17:00.", unv:true },
+      { k:"see", t:"13:15", place:"키타카로 삿포로본칸", move:"주오구 · 10:00–18:00 무휴", pay:"cash",
+        note:"푸딩·점보롤·유메후시기. 오후 애매한 시간대가 한산.",
+        phrase:"これをください", pron:"코레오 쿠다사이",
+        alt:"스텔라 B1 White Cosy 파르페로 대체.", unv:false },
+      { k:"eat", t:"14:00", place:"키노토야 폴타운 · 극상 우유 소프트", move:"삿포로역 폴타운 · 10:00–21:00", pay:"card",
+        note:"지하통로로 이동. 소프트아이스크림 ¥400 안팎.",
+        phrase:"ソフトクリームを一つ", pron:"소후토쿠리-무오 히토쓰",
+        alt:"여기 놓치면 12/17 공항 2F 키노토야에서.", unv:false },
+      { k:"eat", t:"18:00", place:"쿠이테이 · 징기스칸", move:"스스키노 남6서4 · 18:00 오픈런", pay:"cash",
+        note:"현금만·전석 흡연·카운터 8석. 12/14 만석 확인됨 → 12/1 17:45 취소석 전화.",
+        phrase:"予約なしです。空いていますか", pron:"요야쿠 나시데스. 아이테이마스카",
+        alt:"만석이면 시로쿠마(월–수 18:00–) 또는 이타다키마스(11:30–23:00).", unv:true },
+      { k:"eat", t:"21:30", place:"세이코마트 털기 · 심야 라멘", move:"삿포로역 니혼세이메이빌딩 · 06:00–24:00", pay:"card",
+        note:"야식·간식. 심야는 すみれ(~24:00) 또는 一幻(~翌3:00).",
+        phrase:"これ、温めてもらえますか", pron:"코레, 아타타메테 모라에마스카",
+        alt:"24시 넘으면 一幻(1시 이후 한산).", unv:false }
+    ],
+    eat: [
+      { n:"우니 무라카미 삿포로점", tag:"카이센동", reserve:"필요 전화 011-290-1000", unv:true, note:"11:30–14:00 (LO13:30) · 예약석 60% · ¥2,500–5,000" },
+      { n:"쿠이테이", tag:"징기스칸", reserve:"전화만 +81-11-531-2505", cash:true, closed:"일 휴무", unv:true, note:"18:00–01:00 · 카운터 8석·전석 흡연 · 12/14 만석 확인" },
+      { n:"시로쿠마 본점", tag:"징기스칸 플랜B", reserve:"전화 권장", note:"월–수 18:00–01:00 · 생양고기 · 카드 가능" },
+      { n:"이타다키마스", tag:"징기스칸 플랜B", reserve:"전화 권장", note:"11:30–23:00 · 자체 목장 직영 · 현금 위주" },
+      { n:"키노토야 폴타운", tag:"디저트", note:"10:00–21:00 · 극상 우유 소프트아이스크림" },
+      { n:"키타카로 다이마루점", tag:"디저트", note:"10:00–20:00 · 푸딩·점보롤" },
+      { n:"すみれ 스미레", tag:"라멘", note:"11:00–24:00 무휴 · 심야 22:30 이후 15–20분" },
+      { n:"에비소바 一幻 본점", tag:"라멘", note:"11:00–翌03:00 무휴 · 심야 1시 이후 한산" }
+    ],
+    see: [
+      { n:"다이마루 삿포로", tag:"쇼핑", note:"10:00–20:00 · 10시 오픈 직후 한산 · 면세 카운터" },
+      { n:"스텔라플레이스", tag:"쇼핑", note:"10:00–20:00 · 스누피 타운샵·White Cosy" },
+      { n:"오도리 · 스스키노 지하보도", tag:"관광", note:"14:30–17:30 산책 · 눈·바람 피해 이동" }
+    ]
+  },
+  {
+    id: 4, date: "2026-12-15", wd: "TUE", abbr: "D4", place: "오타루",
+    title: "오타루 — 07:33 출발",
+    sub: "겨울 오타루는 16–17시에 닫아 아침부터. 스누피 빌리지 → 마사즈시 → 운하",
+    rows: [
+      { k:"move", t:"07:33", place:"삿포로역 → 오타루역", move:"快速エアポート 49분 · ¥800", pay:"ic",
+        note:"겨울 오타루 상점은 16–17시 마감이라 아침 출발. 다음 후보 07:45→08:35 / 07:59→08:47.",
+        phrase:"小樽まで行きますか", pron:"오타루마데 이키마스카",
+        alt:"놓치면 8분 뒤 07:45 편.", unv:false },
+      { k:"eat", t:"08:30", place:"아지도코로 타케다 · 三角市場", move:"오타루역 도보 3분 · 07:00–16:00 무휴", pay:"cash",
+        note:"3색덮밥(성게·연어알·게)·구운 호타테 ¥2,000–6,000. 8시 이후 대기 급증.",
+        phrase:"おすすめは何ですか", pron:"오스스메와 난데스카",
+        alt:"EPARK 순번예약 또는 HayaPass ¥1,000(1장 4명).", unv:true },
+      { k:"see", t:"09:30", place:"스누피 빌리지 · 르타오 · 가마에이", move:"사카이마치 · SNOOPY茶屋 09:30–17:30", pay:"card",
+        note:"르타오·가마에이 09:00–18:00. 오픈 직후가 한산.",
+        phrase:"スヌーピー茶屋はどこですか", pron:"스누-피- 챠야와 도코데스카",
+        alt:"사람 많으면 오르골당 먼저 → 15시 재방문.", unv:false },
+      { k:"eat", t:"11:30", place:"마사즈시 본점 · 스시", move:"하나조노 · 11:00–15:00 (LO14:30)", pay:"card",
+        note:"수 휴무라 화요일 확정. TableCheck 예약 없으면 90분 대기. ¥6,000–12,000.",
+        phrase:"予約したキムです", pron:"요야쿠시타 기무데스",
+        alt:"본점 만석이면 ぜん庵(목 휴무). 점심 포기면 天ぷら 梵 저녁 17:00 예약.", unv:true },
+      { k:"see", t:"13:10", place:"오르골당 본관 → 기타이치홀", move:"09:00–18:00 / 09:00–17:30", pay:"cash",
+        note:"운하 옆. 기타이치홀에서 쉬고 15시 운하로.",
+        phrase:"写真を撮ってもいいですか", pron:"샤신오 톳테모 이이데스카",
+        alt:"비 오면 오르골당만 보고 15:30 출발.", unv:false },
+      { k:"move", t:"16:30", place:"오타루 → 삿포로 복귀", move:"40분 · ¥800", pay:"ic",
+        note:"17:10 삿포로 도착, 숙소 들렀다 저녁.",
+        phrase:"札幌まで戻ります", pron:"삿포로마데 모도리마스",
+        alt:"다음 편 17:00 → 17:40 도착.", unv:false },
+      { k:"eat", t:"18:00", place:"이타다키마스 또는 すぎ乃", move:"스스키노 · 11:30–23:00 / 17:00–22:30", pay:"card",
+        note:"양 목장 직영 징기스칸(현금 위주) 또는 우니동. 와이라운드는 화요일 휴무.",
+        phrase:"おすすめをください", pron:"오스스메오 쿠다사이",
+        alt:"자리 없으면 테시카가 라멘(~01:00).", unv:true }
+    ],
+    eat: [
+      { n:"아지도코로 타케다", tag:"카이센동", reserve:"EPARK 순번", unv:true, note:"三角市場 · 07:00–16:00 무휴 · 07시 오픈런" },
+      { n:"마사즈시 本店", tag:"스시", reserve:"TableCheck / 전화 +81-134-64-1101", closed:"수 휴무", unv:true, note:"11:00–15:00 (LO14:30) · 예약 없으면 90분 · ¥6,000–12,000" },
+      { n:"마사즈시 ぜん庵", tag:"스시", closed:"목 휴무", note:"11:00–14:30 / 17:00–20:30 · 본점 만석 시 대안" },
+      { n:"天ぷら 梵", tag:"덴푸라", reserve:"필수 전화 +81-134-24-7220", closed:"수 휴무", note:"11:30–13:30 / 17:00–20:00 · 9석 · 마사즈시와 택일" },
+      { n:"르타오 본점", tag:"디저트", note:"사카이마치 · 09:00–18:00 · 치즈케이크" },
+      { n:"가마에이", tag:"디저트", note:"09:00–18:00 · 어묵·튀김어묵" },
+      { n:"기타이치홀", tag:"카페", note:"09:00–17:30 · 오타루 오후 커피" },
+      { n:"すぎ乃", tag:"카이센동", note:"스스키노 · 17:00–22:30 무휴 · 우니동 현지인 취향" },
+      { n:"오뎅 와이라운드", tag:"오뎅", closed:"화 휴무", note:"17:30–22:00 · 12/15 사용 불가" }
+    ],
+    see: [
+      { n:"스누피 빌리지 (SNOOPY茶屋)", tag:"쇼핑", note:"09:30–17:30 · 오픈 직후 한산" },
+      { n:"오르골당 본관", tag:"관광", note:"09:00–18:00 · 스미요시초" },
+      { n:"오타루 운하", tag:"관광", note:"해질 무렵 가스등 · 16시 이후 상점 대부분 닫음" },
+      { n:"사카이마치", tag:"쇼핑", note:"르타오·가마에이·스누피 빌리지가 같은 길" }
+    ]
+  },
+  {
+    id: 5, date: "2026-12-16", wd: "WED", abbr: "D5", place: "조잔케이",
+    title: "조잔케이 · 호헤이쿄 온천 · 폰가",
+    sub: "짝수일 = 여성 대노천탕 날. 눈 맞으며 노천탕, 저녁은 야키니쿠",
+    rows: [
+      { k:"move", t:"09:30", place:"삿포로역 → 조잔케이 · 갓파라이너", move:"60–70분 · 예약제 ¥1,460(현장 1,700)", pay:"ticket",
+        note:"이용 전날 17:00까지 예약·사전결제. 예약 없으면 노선 7H·12H(850엔대)로.",
+        phrase:"定山渓まで行きますか", pron:"조-잔케이마데 이키마스카",
+        alt:"갓파라이너 만석이면 오도리 7H 버스(교통카드).", unv:true },
+      { k:"eat", t:"11:00", place:"조잔케이 온천가 점심", move:"버스 종점 하차 · 11:00~", pay:"cash",
+        note:"호헤이쿄 안 인도 카레 11:00–21:00(LO). 눈 오면 실내 위주.",
+        phrase:"二人です", pron:"후타리데스",
+        alt:"온천가 식당이 줄 길면 호헤이쿄 인도 카레.", unv:true },
+      { k:"see", t:"13:00", place:"호헤이쿄 온천 · 노천탕", move:"10:00–22:30 무휴 · 현장 결제", pay:"cash",
+        note:"입욕료 ¥1,300. 12/16(수)은 짝수일 → 여성 대노천탕 '무이네의 탕'. 수건 판매 220/500엔, 100엔 동전·머리끈·비닐 지참.",
+        phrase:"大人二人、日帰り入浴です", pron:"오토나 후타리, 히가에리 뉴-요쿠데스",
+        alt:"날씨 나쁘면 시내 대체안: 팩토리 → 토리톤 14–16시 → 폰가.", unv:true },
+      { k:"move", t:"15:30", place:"조잔케이 → 삿포로 복귀", move:"60–70분 · 같은 버스", pay:"ticket",
+        note:"17:00 전후 숙소 도착, 저녁까지 여유.",
+        phrase:"札幌行きは何時ですか", pron:"삿포로유키와 난지데스카",
+        alt:"버스 놓치면 다음 편 30분 뒤, 택시 약 ¥7,000.", unv:true },
+      { k:"eat", t:"18:00", place:"야키니쿠 폰가 스스키노", move:"남3서5 B1 · 17:00–03:00", pay:"card",
+        note:"온라인 예약 가능 전화 011-215-1351. 네기탄시오·유케. ¥6,000–10,000.",
+        phrase:"予約したキムです", pron:"요야쿠시타 기무데스",
+        alt:"만석이면 一幻(11:00–翌3:00).", unv:true },
+      { k:"eat", t:"21:30", place:"세이코마트 · 캐리어 털기", move:"삿포로역 · 06:00–24:00", pay:"card",
+        note:"귀국 전날 짐 정리용 간식·기념품. 심야는 活一鮮(평일 16:30–23:00).",
+        phrase:"袋をもらえますか", pron:"후쿠로오 모라에마스카",
+        alt:"23시 넘으면 편의점 도시락.", unv:false }
+    ],
+    eat: [
+      { n:"호헤이쿄 레스토랑 (인도 카레)", tag:"카레", note:"온천 안 · 인도 카레 11:00–21:00(LO) · 和食 11:00–14:00 / 17:00–20:00" },
+      { n:"야키니쿠 폰가", tag:"야키니쿠", reserve:"온라인 / 전화 +81-11-215-1351", unv:true, note:"17:00–03:00 · ¥6,000–10,000 · 12/16 18:00" },
+      { n:"一幻 본점", tag:"라멘", note:"11:00–翌03:00 · 심야 한산" },
+      { n:"活一鮮", tag:"회전초밥", note:"평일 16:30–23:00 · 21시 이후 대기 0" },
+      { n:"セイコーマート", tag:"편의점", note:"06:00–24:00 · 캐리어 털기용 간식" }
+    ],
+    see: [
+      { n:"호헤이쿄 온천", tag:"온천", note:"10:00–22:30 무휴 · ¥1,300 · 짝수일 여성 대노천탕 · 수건 220/500엔" },
+      { n:"조잔케이 온천가", tag:"관광", note:"눈 내리는 계곡 산책 · 버스 종점에서 도보" },
+      { n:"삿포로 팩토리 (대체안)", tag:"쇼핑", note:"날씨 나쁠 때 시내 대체 동선" },
+      { n:"トリトン 北8条店 (대체안)", tag:"회전초밥", note:"평일 14–16시 대기 0–10분" }
+    ]
+  },
+  {
+    id: 6, date: "2026-12-17", wd: "THU", abbr: "D6", place: "신치토세",
+    title: "귀국 — 공항 일찍 가서 놀기",
+    sub: "09:00 체크아웃 → 09:40 공항 → 키노토야 소프트 → 14:05 출발",
+    rows: [
+      { k:"eat", t:"07:00", place:"우오야노 다이도코로 (선택) · 마지막 아침", move:"니조시장 · 07:00 오픈", pay:"cash",
+        note:"7시 오픈런이면 여유. 짐 정리 전에 다녀오기.",
+        phrase:"朝ごはんです", pron:"아사고한데스",
+        alt:"피곤하면 호텔·편의점 아침으로 대체.", unv:false },
+      { k:"move", t:"09:00", place:"체크아웃 → 삿포로역 → 신치토세공항", move:"09:40 도착 · 37분 · ¥1,230", pay:"ticket",
+        note:"빠르게어포트. 캐리어 끌고 3F 출발층으로.",
+        phrase:"空港まで行きますか", pron:"쿠-코-마데 이키마스카",
+        alt:"다음 편 09:15 → 09:52.", unv:false },
+      { k:"eat", t:"09:45", place:"키노토야 신치토세공항 2F · 소프트", move:"2F · 오전 오픈 직후", pay:"card",
+        note:"극상 우유 소프트아이스크림. 오전이 줄 가장 짧음.",
+        phrase:"ソフトクリームを一つ", pron:"소후토쿠리-무오 히토쓰",
+        alt:"줄 길면 3F 스카이숍 디저트.", unv:false },
+      { k:"eat", t:"10:30", place:"라멘 도조 · 에비소바 一幻 (3F)", move:"11:00 오픈 직전 줄 → 1회전", pay:"card",
+        note:"새우 라멘. 오픈 직전에 서면 10분 안에 입장.",
+        phrase:"二人です", pron:"후타리데스",
+        alt:"오픈 전이면 2F 산리오·도라에몽 먼저.", unv:true },
+      { k:"see", t:"11:00", place:"로이즈 초콜릿 월드 · 산리오 · 도라에몽", move:"3F · 11:00–12:20", pay:"card",
+        note:"기념품 마무리. 면세 카운터 전에 사 두기.",
+        phrase:"免税はできますか", pron:"멘제이와 데키마스카",
+        alt:"시간 없으면 로이즈만.", unv:false },
+      { k:"see", t:"12:20", place:"면세점 쇼핑 · 체크인", move:"12:20–13:30", pay:"card",
+        note:"여권·탑승권 준비. 13:30 게이트 이동.",
+        phrase:"搭乗口はどこですか", pron:"토-죠-구치와 도코데스카",
+        alt:"면세 줄 길면 게이트 앞 매장에서.", unv:false },
+      { k:"move", t:"14:05", place:"CTS 출발 → 17:30 ICN", move:"파라타항공 직항", pay:"ticket",
+        note:"13:30 게이트 이동. 액체류는 위탁수하물로.",
+        phrase:"", pron:"",
+        alt:"", unv:false }
+    ],
+    eat: [
+      { n:"키노토야 신치토세공항 2F", tag:"디저트", note:"오전 오픈 직후 줄 가장 짧음 · 극상 우유 소프트" },
+      { n:"라멘 도조 에비소바 一幻", tag:"라멘", unv:true, note:"3F · 11:00 오픈 직전 줄 → 1회전" },
+      { n:"우오야노 다이도코로", tag:"카이센동", note:"니조시장 · 07:00 오픈 · 선택 코스" },
+      { n:"세이코마트", tag:"편의점", note:"06:00–24:00 · 기내 간식" }
+    ],
+    see: [
+      { n:"로이즈 초콜릿 월드", tag:"쇼핑", note:"3F · 초콜릿·기념품" },
+      { n:"산리오 · 도라에몽 숍", tag:"쇼핑", note:"2–3F · 캐릭터 기념품" },
+      { n:"면세점 · 체크인 카운터", tag:"공항", note:"12:20–13:30 · 여권 지참" }
+    ]
+  }
+];
+
+/* ===== 예산 (2인 기준 · 1인 금액은 계산해서 표시) ===== */
+var BUDGET = [
+  { cat:"항공", name:"파라타항공 ICN↔CTS 왕복 2인", amt:1100000, cur:"KRW", basis:"추정", memo:"1인 45–60만 검색가 범위(11/17 기준). 실제 결제액 알려주면 '확인'으로 바뀝니다." },
+  { cat:"숙소", name:"토큐 스테이 삿포로 5박 2인", amt:900000, cur:"KRW", basis:"추정", memo:"1박 16–19만 × 5박 (12월 성수기 시세)" },
+  { cat:"교통", name:"신치토세공항↔삿포로 JR 왕복 2인", amt:4920, cur:"JPY", basis:"확인", memo:"¥1,230 × 2명 × 2회 (JR北海道 2025-04-01 개정 운임)" },
+  { cat:"교통", name:"삿포로 지하철 1일권 12/13 2인 (도니치카)", amt:1040, cur:"JPY", basis:"확인", memo:"¥520 × 2명 · 토·일·공휴일 전용. 지하철 3회 이상 탈 때만 이득" },
+  { cat:"교통", name:"삿포로↔오타루 JR 왕복 2인", amt:3200, cur:"JPY", basis:"확인", memo:"¥800 × 2명 × 2회" },
+  { cat:"교통", name:"조잔케이 갓파라이너 왕복 2인", amt:5840, cur:"JPY", basis:"확인", memo:"사전결제 ¥1,460 × 2명 × 2회 (현장 1,700엔)" },
+  { cat:"교통", name:"지하철·시내버스 개별 (3회 가정)", amt:1260, cur:"JPY", basis:"추정", memo:"¥210 × 2명 × 3회" },
+  { cat:"입장료", name:"호헤이쿄 온천 입욕 2인", amt:2600, cur:"JPY", basis:"확인", memo:"¥1,300 × 2명 (조잔케이관광협회 공식 · 타사 1,000엔 표기 있음)" },
+  { cat:"입장료", name:"삿포로 맥주 박물관 시음 2인", amt:2000, cur:"JPY", basis:"추정", memo:"입장 무료, 시음 유료 ¥1,000 × 2명 가정" },
+  { cat:"식비", name:"6일 식비 2인", amt:96000, cur:"JPY", basis:"추정", memo:"¥8,000 × 2명 × 6일 (쿠이테이·우니동·마사즈시 포함)" },
+  { cat:"쇼핑", name:"방한 장비 + 기념품·면세", amt:600000, cur:"KRW", basis:"추정", memo:"모자·장갑·신발 30만 + 기념품·면세 30만" },
+  { cat:"통신", name:"eSIM 2인 6일", amt:40000, cur:"KRW", basis:"추정", memo:"무제한 eSIM 1인 1.5–2만" },
+  { cat:"보험", name:"여행자보험 2인 6일", amt:30000, cur:"KRW", basis:"추정", memo:"해외여행보험 1인 1.2–1.8만" }
+];
+var BCATS = ["항공","숙소","교통","입장료","식비","쇼핑","통신","보험","기타"];
+var EXP_CATS = ["교통","식비","숙박","관광","쇼핑","기타"];
+var EXP_MAP = { "교통":"교통", "식비":"식비", "숙박":"숙소", "관광":"입장료", "쇼핑":"쇼핑", "기타":"기타" };
+var PAYS = ["현금","카드","교통카드"];
+var CURS = ["JPY","KRW"];
+
+var TODO_DEFAULT = [
+  "쿠이테이 12/14 취소석 전화 (12/1 17:45 · 전화 +81-11-531-2505)",
+  "우니 무라카미 12/14 11:30 예약 (전화 011-290-1000)",
+  "마사즈시 본점 12/15 11:30 TableCheck 예약",
+  "야키니쿠 폰가 12/16 18:00 온라인 예약",
+  "갓파라이너 12/16 예약 (전날 17:00까지 · 1,460엔)",
+  "아지도코로 타케다 12/15 EPARK 순번예약",
+  "여권 유효기간 6개월 이상 확인",
+  "e-티켓·예약확인서 폰에 저장",
+  "여행자보험 가입",
+  "eSIM·로밍 준비",
+  "환전·트래블카드 (엔화 현금 10만엔)",
+  "교통패스 수령 방법 확인 (도니치카는 현금만)",
+  "12/9 09:00 날씨 예보로 오타루·조잔케이 최종 확정"
+];
+var PACK_DEFAULT = [
+  "여권", "충전기·보조배터리", "멀티 어댑터", "상비약", "동전 지갑", "접이식 우산",
+  "아이젠(도시형 고무)", "온천 수건·100엔 동전", "롱패딩·이어플랩 캡·장갑"
+];
+</script>
+<script>
+"use strict";
+/* ================= 저장소 (모든 접근 try/catch) ================= */
+var LS_KEY = "sapporo_app_v1";
+var PHOTO_KEY = "sapporo_photo_v1";
+var store = {
+  get: function(k){
+    try { return window.localStorage.getItem(k); } catch(e){ return null; }
+  },
+  set: function(k,v){
+    try { window.localStorage.setItem(k,v); return true; } catch(e){ return false; }
+  }
+};
+
+var WD = { SAT:"토", SUN:"일", MON:"월", TUE:"화", WED:"수", THU:"목", FRI:"금" };
+
+function esc(s){
+  return String(s==null?"":s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function pad2(n){ return (n<10?"0":"")+n; }
+function todayISO(){ var d=new Date(); return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); }
+function won(n){ return Math.round(n).toLocaleString("ko-KR")+"원"; }
+function num(n){ return Math.round(n).toLocaleString("ko-KR"); }
+function jpy(n){ return "¥"+num(n); }
+function dayById(id){ for(var i=0;i<DAYS.length;i++){ if(DAYS[i].id===id) return DAYS[i]; } return DAYS[0]; }
+function dateLabel(d){ return d.date.slice(5).replace("-","."); }
+
+function ddayChip(){
+  var t=todayISO(), s=state.trip.start, e=state.trip.end;
+  try{
+    if(t<s){ var n=Math.round((new Date(s+"T00:00:00")-new Date(t+"T00:00:00"))/864e5); return "D-"+n; }
+    if(t===s) return "D-DAY";
+    if(t<=e){ var k=Math.round((new Date(t+"T00:00:00")-new Date(s+"T00:00:00"))/864e5)+1; return "여행 "+k+"일째"; }
+  }catch(err){ return "여행"; }
+  return "여행 끝";
+}
+function tripOngoing(){
+  var t=todayISO(); return t>=state.trip.start && t<=state.trip.end;
+}
+
+/* ================= 상태 ================= */
+var DEFAULT_STATE = {
+  screen:"main", tab:"schedule", day:1, openTile:"", editStep:1,
+  trip: TRIP,
+  todo: TODO_DEFAULT.map(function(t,i){ return {id:"t"+i, text:t, done:false}; }),
+  pack: PACK_DEFAULT.map(function(t,i){ return {id:"p"+i, text:t, done:false}; }),
+  expenses: [],
+  lastPay: { cur:"JPY", pay:"현금" }
+};
+var state = (function(){
+  var s = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  var raw = store.get(LS_KEY);
+  if(raw){
+    try{
+      var o = JSON.parse(raw);
+      if(o && typeof o==="object"){
+        for(var k in o){
+          if(!Object.prototype.hasOwnProperty.call(o,k)) continue;
+          if(k==="trip" && o.trip && typeof o.trip==="object"){
+            for(var tk in o.trip){ if(Object.prototype.hasOwnProperty.call(o.trip,tk)) s.trip[tk]=o.trip[tk]; }
+          } else if(k==="todo"||k==="pack"||k==="expenses"){
+            if(Object.prototype.toString.call(o[k])==="[object Array]") s[k]=o[k];
+          } else if(k==="lastPay" && o.lastPay && typeof o.lastPay==="object"){
+            s.lastPay={cur:o.lastPay.cur||"JPY", pay:o.lastPay.pay||"현금"};
+          } else if(typeof o[k]!=="object"){ s[k]=o[k]; }
+        }
+      }
+    }catch(e){ stateSaveSafe=false; }
+  }
+  if(!s.trip || typeof s.trip!=="object") s.trip = TRIP;
+  if(!Array.isArray(s.todo)) s.todo = DEFAULT_STATE.todo.map(function(x){return Object.assign({},x);});
+  if(!Array.isArray(s.pack)) s.pack = DEFAULT_STATE.pack.map(function(x){return Object.assign({},x);});
+  if(!Array.isArray(s.expenses)) s.expenses = [];
+  if(typeof s.day!=="number" || s.day<1 || s.day>DAYS.length) s.day=1;
+  return s;
+})();
+var stateSaveSafe = true;
+
+function save(){ stateSaveSafe = store.set(LS_KEY, JSON.stringify(state)); }
+function getPhoto(){ return store.get(PHOTO_KEY) || ""; }
+
+var toastTimer=null;
+function toast(msg){
+  var el=document.getElementById("toast");
+  el.textContent=msg; el.classList.add("on");
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){ el.classList.remove("on"); }, 1800);
+}
+
+/* ================= 공통 조각 ================= */
+function stampsHTML(sel){
+  var t=todayISO();
+  return DAYS.map(function(d){
+    var on = d.id===sel;
+    return '<div class="swrap">'
+      +'<button class="stamp'+(on?" on":"")+'" data-act="day" data-day="'+d.id+'" aria-pressed="'+(on?"true":"false")+'" aria-label="'+esc(d.abbr+" "+d.place+" "+dateLabel(d))+'">'
+      +'<span class="d">'+d.abbr+'</span><span class="p">'+esc(d.place)+'</span>'
+      +(d.date===t?'<span class="nowtag">오늘</span>':'')
+      +'</button>'
+      +'<span class="sdate tnum">'+dateLabel(d)+' '+WD[d.wd]+'</span>'
+      +'</div>';
+  }).join("");
+}
+
+var PAY_LABEL = { pass:"패스", ticket:"티켓", ic:"교통카드", cash:"현금", card:"카드" };
+var KIND_LABEL = { eat:"먹기", stay:"숙소", see:"관광", move:"이동" };
+
+function payBadge(p){ return p ? '<span class="badge '+p+'">'+PAY_LABEL[p]+'</span>' : ""; }
+
+function rowHTML(r, idx, day){
+  var dot = r.k==="stay" ? "stay" : "";
+  if(idx===0 && day.date===todayISO()) dot="first";
+  var badges = payBadge(r.pay) + (r.unv?'<span class="badge unv">미검증</span>':"");
+  var inner = "";
+  if(r.note) inner += '<div class="memo-line">'+esc(r.note)+'</div>';
+  if(r.phrase) inner += '<div class="phrase"><div class="jp">'+esc(r.phrase)+'</div><div class="pron">'+esc(r.pron)+'</div></div>';
+  if(r.alt) inner += '<div class="alt"><b>놓치면</b> '+esc(r.alt)+'</div>';
+  var more = inner ? '<details class="rowmore"><summary>자세히</summary>'+inner+'</details>' : "";
+  return '<div class="trow">'
+    +'<div class="trow-time"><div class="tt tnum">'+esc(r.t)+'</div><span class="tag '+r.k+'">'+KIND_LABEL[r.k]+'</span></div>'
+    +'<div class="trow-body"><span class="dot '+dot+'"></span>'
+    +'<div class="place">'+esc(r.place)+'</div>'
+    +(r.move?'<div class="move">'+esc(r.move)+'</div>':"")
+    +(badges?'<div class="badges">'+badges+'</div>':"")
+    +more
+    +'</div></div>';
+}
+
+function hotelLine(day){
+  if(day.id===1) return "첫날 밤 묵는 곳";
+  if(day.id===DAYS.length) return "체크아웃하는 날 · 짐 안내";
+  return day.id+"일차 밤 묵는 곳";
+}
+
+function hotelStatus(day){
+  if(day.id===DAYS.length) return '<span class="badge closed">체크아웃</span>';
+  return '<span class="badge unv">미검증</span>';
+}
+
+/* ================= 일정 탭 ================= */
+function scheduleHTML(){
+  var day = dayById(state.day);
+  var unv = day.rows.filter(function(r){ return r.unv; }).length;
+  var first = day.rows[0], last = day.rows[day.rows.length-1];
+  var range = first.t + " – " + last.t;
+
+  var head = '<div class="ticket-head '+(day.id%2?"odd":"even")+'">'
+    +'<div class="th-top"><span>'+day.abbr+' · '+day.date+" "+WD[day.wd]+'</span><span>'+day.wd+'</span></div>'
+    +'<h2>'+esc(day.title)+'</h2>'
+    +'<div class="ticket-sub">'+esc(day.sub)+'</div>'
+    +'<div class="th-meta"><span class="tnum">'+esc(range)+'</span><span>'+day.rows.length+'곳 · 미검증 '+unv+'건</span></div>'
+    +'</div>';
+
+  var body = '<div class="timeline">'
+    + day.rows.map(function(r,i){ return rowHTML(r,i,day); }).join("")
+    +'</div>';
+
+  var hotel = '<div class="hotelbox"><div class="lbl"><span>오늘 밤</span>'+hotelStatus(day)+'</div>'
+    +'<div class="nm">'+esc(HOTEL.name)+'</div>'
+    +'<div class="sub">'+esc(hotelLine(day))+' · 체크인 '+HOTEL.checkin+' / 체크아웃 '+HOTEL.checkout+'</div>'
+    +'</div>';
+
+  var confirmCard = "";
+  if(!state.trip.confirmed){
+    confirmCard = '<div class="confirmcard"><div class="ch">'
+      +'<svg class="st" viewBox="0 0 24 24" fill="none" stroke="#B8401F" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>'
+      +'<div><h3>최신 정보로 확정하기</h3><div style="font-size:12.5px;color:var(--ink-2);margin-top:3px">입력한 여행 정보를 복사해 보내면 일정을 확정해 드려요.</div></div>'
+      +'</div><div class="sum" id="summaryBox">'+esc(summaryText())+'</div>'
+      +'<button class="btn-choc" data-act="copy-summary">요약 복사</button></div>';
+  }
+
+  return '<div class="panel">'
+    +'<div class="stamps" id="stamps">'+stampsHTML(day.id)+'</div>'
+    + confirmCard
+    +'<div class="ticket">'+head+'<div class="perf"></div>'+body+hotel+'</div>'
+    +'</div>';
+}
+
+function summaryText(){
+  var t=state.trip;
+  return "여행지: "+t.dest+" · "+t.start+"~"+t.end+" · "+t.people+"명 · "+t.airport+" 출발\n"
+    +"항공: "+(t.flight||"미입력")+"\n숙소: "+(t.hotel||"미입력")+" ("+(t.meals||"-")+")\n"
+    +"티켓·패스: "+(t.pass||"없음")+"\n꼭 하고 싶은 것: "+(t.want||"-")+"\n피하고 싶은 것: "+((t.avoid||[]).join(", ")||"-");
+}
+
+/* ================= 맛집·관광 탭 ================= */
+function spotItem(s){
+  var bd = "";
+  if(s.reserve) bd += '<span class="badge res">예약 '+esc(s.reserve)+'</span>';
+  if(s.cash) bd += '<span class="badge cash">현금만</span>';
+  if(s.closed) bd += '<span class="badge closed">'+esc(s.closed)+'</span>';
+  if(s.unv) bd += '<span class="badge unv">미검증</span>';
+  return '<div class="spt"><div class="top"><div class="nm">'+esc(s.n)+'</div>'
+    +(bd?'<div class="bd">'+bd+'</div>':"")
+    +'</div><div class="nt"><span class="tag see" style="margin-right:5px">'+esc(s.tag)+'</span>'+esc(s.note)+'</div></div>';
+}
+
+function spotsHTML(){
+  var day=dayById(state.day);
+  var eat = day.eat||[], see = day.see||[];
+  var body = '<div class="dayhead"><div class="k">DAY '+day.id+' · '+day.date+" "+WD[day.wd]+'</div><h2>'+esc(day.place)+'</h2></div>';
+  body += '<div class="grp"><h3>먹을 곳</h3>' + (eat.length?eat.map(spotItem).join(""):
+    '<div class="empty">이날 먹을 곳 목록이 비어 있어요</div>') + '</div>';
+  body += '<div class="grp"><h3>볼 곳</h3>' + (see.length?see.map(spotItem).join(""):
+    '<div class="empty">이날 볼 곳 목록이 비어 있어요</div>') + '</div>';
+  return '<div class="panel"><div class="stamps" id="stamps">'+stampsHTML(day.id)+'</div>'+body+'</div>';
+}
+
+/* ================= 숙소 탭 ================= */
+function lodgingHTML(){
+  var day=dayById(state.day);
+  var extra = day.id===DAYS.length
+    ? "09:00 체크아웃 — 짐은 바로 공항으로. JR 09:00 출발(09:40 신치토세 도착)."
+    : "6일 내내 같은 숙소 — 짐 풀고 다니는 일정. 오도리·소세이가와 지하보도로 이동.";
+  var card = '<div class="stamps" id="stamps">'+stampsHTML(day.id)+'</div>'
+    +'<div class="dayhead"><div class="k">DAY '+day.id+' · '+day.date+" "+WD[day.wd]+'</div><h2>'+esc(hotelLine(day))+'</h2>'
+    +'<div style="font-size:12.5px;color:var(--ink-2);margin-top:4px">'+esc(extra)+'</div></div>'
+    +'<details class="fold" open><summary><span class="stitle">'+esc(HOTEL.name)+'</span>'+hotelStatus(day)+'<span class="chev"></span></summary>'
+    +'<div class="fbody">'
+    +'<div class="kv"><span class="k2">체크인</span><span>'+HOTEL.checkin+'</span></div>'
+    +'<div class="kv"><span class="k2">체크아웃</span><span>'+(day.id===DAYS.length?"09:00 (정규 11:00)":HOTEL.checkout)+'</span></div>'
+    +'<div class="kv"><span class="k2">송영</span><span>없음 — 삿포로역 도보 7분 / 오도리 도보 5분</span></div>'
+    +'<div class="kv"><span class="k2">식사</span><span>조식 미포함(1F 유료) · 12/14 다이마루 B1 키노토야</span></div>'
+    +'<div class="kv" style="display:block"><span class="k2">메모</span><div style="font-size:13.5px;margin-top:2px">예약 확인서로 체크인 시간·조식 요금 재확인. 체크인 전·체크아웃 후 짐 보관은 프런트에 요청. 12/17은 공항에 일찍 가야 해서 짐을 맡기지 않습니다.</div></div>'
+    +'<div style="margin-top:12px"><a class="btn-choc" href="'+HOTEL.map+'" target="_blank" rel="noopener">지도에서 보기</a></div>'
+    +'</div></details>'
+    +'<div style="font-size:12px;color:var(--ink-2);margin-top:12px">숙소 상태는 예약 확인서를 받기 전까지 <b style="color:var(--warn-ink)">미검증</b>으로 표시합니다.</div>';
+  return '<div class="panel">'+card+'</div>';
+}
+</script>
+<script>
+"use strict";
+/* ================= 홈 탭 ================= */
+function postmarkSVG(cls){
+  return '<svg class="'+cls+'" viewBox="0 0 64 64" fill="none" stroke="var(--ink-2)" stroke-width="1.3" aria-hidden="true">'
+    +'<circle cx="34" cy="32" r="20"/><circle cx="34" cy="32" r="15"/>'
+    +'<path d="M6 24h14M6 32h18M6 40h14"/><path d="M28 27h12M28 32h12M28 37h8"/></svg>';
+}
+function nights(){
+  try{ return Math.max(1, Math.round((new Date(state.trip.end+"T00:00:00")-new Date(state.trip.start+"T00:00:00"))/864e5)); }
+  catch(e){ return 5; }
+}
+function tileHTML(kind,label,list,open){
+  var total=list.length, done=list.filter(function(x){return x.done;}).length;
+  var pct= total? Math.round(done/total*100):0;
+  return '<button class="tile '+kind+(open?" on":"")+'" data-act="toggle-tile" data-tile="'+kind+'" aria-expanded="'+(open?"true":"false")+'">'
+    +'<div class="lab">'+label+'</div>'
+    +'<div><div class="num tnum">'+done+'<small>/'+total+'</small></div>'
+    +'<div class="pbar" style="margin-top:7px"><i style="width:'+pct+'%"></i></div></div>'
+    +'<div class="more">'+(open?"· 접기":"· 펼치기")+'</div>'
+    +'</button>';
+}
+function listHTML(kind,list){
+  var items=list.map(function(it){
+    return '<li>'
+      +'<button class="chk'+(it.done?" on":"")+'" data-act="'+kind+'-check" data-id="'+esc(it.id)+'" aria-pressed="'+(it.done?"true":"false")+'" aria-label="체크: '+esc(it.text)+'">'
+      +'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></button>'
+      +'<div class="tx'+(it.done?" done":"")+'">'+esc(it.text)+'</div>'
+      +'<button class="del" data-act="'+kind+'-del" data-id="'+esc(it.id)+'" aria-label="삭제: '+esc(it.text)+'">'
+      +'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'
+      +'</li>';
+  }).join("");
+  return '<ul class="list '+(kind==="pack"?"pack":"")+'">'+items+'</ul>'
+    +'<div class="addrow"><input class="input" id="add_'+kind+'" type="text" placeholder="항목 추가" aria-label="'+ (kind==="pack"?"준비물":"할 일") +' 항목 추가">'
+    +'<button class="addbtn" data-act="'+kind+'-add" aria-label="추가">+</button></div>';
+}
+function caseHTML(){
+  var list=state.pack, done=list.filter(function(x){return x.done;}).length;
+  return '<div class="case"><div class="casetag">준비물<br><span class="tnum">'+done+'/'+list.length+'</span></div>'
+    +'<span class="wheel w1"></span><span class="wheel w2"></span>'
+    +'<div class="inner"><h3>준비물 · 캐리어</h3>'+listHTML("pack",list)+'</div></div>';
+}
+function homeHTML(){
+  var photo=getPhoto();
+  var img = photo ? '<img src="'+esc(photo)+'" alt="엽서 사진">' : "";
+  var ph = photo ? '' : '<div class="ph"><div style="font-size:12.5px">사진을 넣으면 엽서가 완성돼요</div></div>';
+  var dates = state.trip.start.slice(5).replace("-",".")+" – "+state.trip.end.slice(5).replace("-",".");
+  var postcard = '<div class="postcard"><span class="tape"></span>'
+    +'<div class="photo">'+img+ph+postmarkSVG("postmark")
+    +'<label class="photobtn">'+(photo?"사진 바꾸기":"사진 고르기")
+    +'<input type="file" accept="image/*" id="photoInput" style="display:none"></label>'
+    +'</div>'
+    +'<div class="caption">'
+    +'<div class="hand">'+esc(state.trip.destEn||"SAPPORO")+'</div>'
+    +'<h1>'+esc(state.trip.dest)+' '+nights()+'박 '+(nights()+1)+'일</h1>'
+    +'<div class="capdiv"></div>'
+    +'<div class="caprow"><span class="tnum">'+esc(dates)+'</span><span>·</span><span>'+state.trip.people+'명</span>'
+    +'<span class="dday">'+esc(ddayChip())+'</span></div>'
+    +'</div></div>';
+  var todo=listHTML("todo",state.todo), pack=caseHTML();
+  var body = postcard
+    +'<div class="tiles">'+tileHTML("todo","할 일",state.todo,state.openTile==="todo")+tileHTML("pack","준비물",state.pack,state.openTile==="pack")+'</div>';
+  if(state.openTile==="todo"){
+    var d=state.todo.filter(function(x){return x.done;}).length;
+    body += '<div class="memo"><h3>할 일 <span style="font-size:12px;font-weight:600;color:var(--ink-2)">'+d+'/'+state.todo.length+'</span></h3>'+listHTML("todo",state.todo)+'</div>';
+  } else if(state.openTile==="pack"){
+    body += pack;
+  }
+  return '<div class="panel">'+body+'</div>';
+}
+
+/* ================= 가계부 ================= */
+function toKRW(it){ return it.cur==="JPY" ? yen2krw(it.amt) : it.amt; }
+function expKRW(e){ return e.cur==="JPY" ? yen2krw(e.amount) : e.amount; }
+function budgetByCat(){
+  var o={};
+  BUDGET.forEach(function(i){ o[i.cat]=(o[i.cat]||0)+toKRW(i); });
+  return o;
+}
+function spentByCat(){
+  var o={};
+  state.expenses.forEach(function(e){
+    var c=EXP_MAP[e.cat]||"기타";
+    o[c]=(o[c]||0)+expKRW(e);
+  });
+  return o;
+}
+function getExp(id){
+  for(var i=0;i<state.expenses.length;i++){ if(state.expenses[i].id===id) return state.expenses[i]; }
+  return null;
+}
+function ledgerHTML(){
+  var bcat=budgetByCat(), scat=spentByCat();
+  var budgetTotal=0; BUDGET.forEach(function(i){ budgetTotal+=toKRW(i); });
+  var spentTotal=0; state.expenses.forEach(function(e){ spentTotal+=expKRW(e); });
+  var people=Math.max(1,state.trip.people||1);
+  var left=budgetTotal-spentTotal;
+  var over = left<0;
+
+  var tiles='<div class="btiles">'
+    +'<div class="btile"><div class="lab">예산 합계</div><div class="v tnum">'+won(budgetTotal)+'</div><div class="s tnum">1인 '+won(budgetTotal/people)+'</div></div>'
+    +'<div class="btile'+(over?" over":"")+'"><div class="lab">'+(over?"예산 초과":"남은 예산")+'</div><div class="v tnum">'+won(Math.abs(left))+'</div>'
+    +'<div class="s tnum">지출 '+won(spentTotal)+'</div></div>'
+    +'</div>';
+
+  var rows="";
+  BCATS.forEach(function(c){
+    var b=bcat[c]||0, s=scat[c]||0;
+    if(b===0 && s===0) return;
+    var pct= b>0 ? Math.min(100, Math.round(s/b*100)) : (s>0?100:0);
+    var isOver = s>b;
+    rows += '<tr><td><div class="catn">'+c+'</div>'
+      +'<div class="bar"><i class="'+(isOver?"over":"")+'" style="width:'+pct+'%"></i></div></td>'
+      +'<td class="r num tnum">'+won(b)+'</td>'
+      +'<td class="r num tnum" '+(isOver?'style="color:var(--warn-ink)"':'')+'>'+won(s)+'</td></tr>';
+  });
+  var table='<table class="btable"><thead><tr><th>분류</th><th class="r">예산</th><th class="r">지출</th></tr></thead><tbody>'+rows+'</tbody></table>';
+
+  var kConf=BUDGET.filter(function(i){return i.basis==="확인";}).length;
+  var kEst=BUDGET.length-kConf;
+  var items = BUDGET.map(function(i){
+    var amt = i.cur==="JPY" ? jpy(i.amt)+' · '+won(yen2krw(i.amt)) : won(i.amt);
+    return '<div class="bitem"><div class="l"><div class="bn">'+esc(i.name)+'</div>'
+      +'<div class="bm">'+esc(i.memo)+'</div></div>'
+      +'<div class="br"><div class="ba tnum">'+amt+'</div>'
+      +'<span class="badge '+(i.basis==="확인"?"done":"unv")+'">'+esc(i.basis)+'</span></div></div>';
+  }).join("");
+  var budgetFold='<details class="fold"><summary><span class="stitle">예산 항목</span>'
+    +'<span class="badge card">'+BUDGET.length+'개 · 확인 '+kConf+' · 추정 '+kEst+'</span><span class="chev"></span></summary>'
+    +'<div class="fbody">'+items+'</div></details>';
+
+  var fx='<div class="fxline">원 환산 · 100엔 = '+FX.jpy100+'원 ('+esc(FX.date)+' 고시 · 한국수출입은행 매매기준율)</div>'
+    +'<div class="fxbox"><div class="r"><span>엔</span><input id="fxin" inputmode="numeric" placeholder="3980" aria-label="엔화 금액"><span>→</span><span class="eq tnum" id="fxout">0원</span></div>'
+    +'<div style="font-size:11px;color:var(--ai-ink);margin-top:6px">카드·환전은 수수료가 붙어 이 값보다 조금 더 듭니다.</div></div>';
+
+  /* 실제 지출 */
+  var expBlock="";
+  if(state.expenses.length===0){
+    expBlock='<div class="empty" style="text-align:left;line-height:1.6">오른쪽 아래 <b>지출</b> 버튼으로 기록하거나, 영수증 사진을 채팅에 올리면 대신 넣어 드려요.</div>';
+  } else {
+    var jpySum=0, krwSum=0;
+    state.expenses.forEach(function(e){ if(e.cur==="JPY") jpySum+=e.amount; else krwSum+=e.amount; });
+    var others=state.expenses.filter(function(e){ return e.cur!=="JPY" && e.cur!=="KRW"; }).length;
+    expBlock += '<div class="curtot"><span>JPY 합계</span><span class="n tnum">'+jpy(jpySum)+' <span style="color:var(--ink-2);font-weight:400">('+won(yen2krw(jpySum))+')</span></span></div>';
+    if(krwSum>0) expBlock += '<div class="curtot"><span>KRW 합계</span><span class="n tnum">'+won(krwSum)+'</span></div>';
+    expBlock += '<div class="curtot"><span>합계 · 1인</span><span class="n tnum">'+won(spentTotal)+' · '+won(spentTotal/people)+'</span></div>';
+    if(others>0) expBlock += '<div style="font-size:12px;color:var(--warn-ink);margin-top:6px">원화·엔화가 아닌 '+others+'건은 합계에서 빠졌어요.</div>';
+
+    /* 분류 × 통화 */
+    var catCur={};
+    state.expenses.forEach(function(e){
+      catCur[e.cat]=catCur[e.cat]||{JPY:0,KRW:0};
+      catCur[e.cat][e.cur]=(catCur[e.cat][e.cur]||0)+e.amount;
+    });
+    var crow='';
+    EXP_CATS.forEach(function(c){
+      var x=catCur[c]; if(!x) return;
+      crow+='<tr><td>'+c+'</td><td class="r num tnum">'+(x.JPY?jpy(x.JPY):"—")+'</td><td class="r num tnum">'+(x.KRW?won(x.KRW):"—")+'</td></tr>';
+    });
+    expBlock += '<div class="span">분류 × 통화</div><table class="btable"><thead><tr><th>분류</th><th class="r">JPY</th><th class="r">KRW</th></tr></thead><tbody>'+crow+'</tbody></table>';
+
+    /* 날짜별 */
+    expBlock += '<div class="span">날짜별</div>';
+    DAYS.forEach(function(d){
+      var list=state.expenses.filter(function(e){ return e.day===d.id; });
+      if(!list.length) return;
+      var daySum={JPY:0,KRW:0};
+      list.forEach(function(e){ daySum[e.cur]=(daySum[e.cur]||0)+e.amount; });
+      var sumTxt=[];
+      if(daySum.JPY) sumTxt.push(jpy(daySum.JPY));
+      if(daySum.KRW) sumTxt.push(won(daySum.KRW));
+      expBlock += '<div class="expgrp"><div class="gh"><span>'+d.abbr+' · '+dateLabel(d)+' '+WD[d.wd]+'</span><span class="tnum">'+sumTxt.join(" · ")+'</span></div>'
+        + list.map(function(e){
+            var pending = state.pendingDel===e.id;
+            return '<div class="exp"><div class="l"><div class="nm2">'+esc(e.note||"지출")+'</div>'
+              +'<div class="meta"><span class="tag see">'+esc(e.cat)+'</span>'+payBadge(e.pay==="현금"?"cash":e.pay==="카드"?"card":"ic")
+              +'</div></div>'
+              +'<div class="amt tnum">'+(e.cur==="JPY"?jpy(e.amount):won(e.amount))+'</div>'
+              +'<div class="ops"><button class="tbtn" data-act="exp-edit" data-id="'+esc(e.id)+'">수정</button>'
+              +'<button class="tbtn '+(pending?"danger":"")+'" data-act="exp-del" data-id="'+esc(e.id)+'">'+(pending?"한 번 더":"삭제")+'</button></div>'
+              +'</div>';
+          }).join("")
+        +'</div>';
+    });
+  }
+
+  return '<div class="panel">'
+    +'<div style="padding:8px 0 12px"><div class="eyebrow">LEDGER · 2인</div>'
+    +'<h2 style="font-size:22px;margin-top:2px">가계부</h2></div>'
+    +tiles+table+fx+ '<div style="height:14px"></div>'+budgetFold
+    +'<div class="span">실제 지출</div>'+expBlock
+    +'</div>';
+}
+
+/* ================= 지출 시트 ================= */
+var draft = { cur:"JPY", amt:"", cat:"식비", pay:"현금", day:1, note:"", editId:null };
+function openSheet(editId){
+  document.getElementById("sheetwrap").classList.add("open");
+  if(editId){
+    var e=getExp(editId);
+    if(e) draft={cur:e.cur, amt:String(e.amount), cat:e.cat, pay:e.pay, day:e.day, note:e.note||"", editId:e.id};
+  } else {
+    draft={cur:state.lastPay.cur||"JPY", amt:"", cat:"식비", pay:state.lastPay.pay||"현금", day:state.day, note:"", editId:null};
+  }
+  renderSheet();
+  setTimeout(function(){
+    var a=document.getElementById("amtInput");
+    if(a) a.focus();
+  },80);
+}
+function closeSheet(){
+  document.getElementById("sheetwrap").classList.remove("open");
+  draft.editId=null;
+}
+function renderSheet(){
+  var el=document.getElementById("sheet");
+  var curSym = draft.cur==="JPY" ? "¥" : "₩";
+  var dayChips = DAYS.map(function(d){
+    return '<button class="chip sm'+(draft.day===d.id?" on":"")+'" data-act="sheet-day" data-v="'+d.id+'">'+d.abbr+' <span style="opacity:.7">'+dateLabel(d)+'</span></button>';
+  }).join("");
+  el.innerHTML =
+    '<div class="shead"><h3>'+(draft.editId?"지출 수정":"지출 기록")+'</h3>'
+    +'<button class="xbtn" data-act="quick-close" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'
+    +'<div class="flabel">통화</div><div class="chiprow">'
+    +'<button class="chip sm'+(draft.cur==="JPY"?" on":"")+'" data-act="sheet-cur" data-v="JPY">엔 (JPY)</button>'
+    +'<button class="chip sm'+(draft.cur==="KRW"?" on":"")+'" data-act="sheet-cur" data-v="KRW">원 (KRW)</button></div>'
+    +'<div class="amtrow"><span class="cur">'+curSym+'</span><input id="amtInput" inputmode="numeric" autocomplete="off" value="'+esc(draft.amt)+'" aria-label="금액"></div>'
+    +'<div class="flabel">분류</div><div class="chiprow">'
+    +EXP_CATS.map(function(c){ return '<button class="chip sm'+(draft.cat===c?" on":"")+'" data-act="sheet-cat" data-v="'+c+'">'+c+'</button>'; }).join("")
+    +'</div>'
+    +'<div class="flabel">결제</div><div class="chiprow">'
+    +PAYS.map(function(p){ return '<button class="chip sm'+(draft.pay===p?" on":"")+'" data-act="sheet-pay" data-v="'+p+'">'+p+'</button>'; }).join("")
+    +'</div>'
+    +'<div class="flabel">날짜</div><div class="chiprow">'+dayChips+'</div>'
+    +'<div class="flabel">내용</div><input class="input" id="noteInput" type="text" autocomplete="off" value="'+esc(draft.note)+'" placeholder="예: 스시 돈부리 점심">'
+    +'<button class="savebtn" data-act="quick-save">저장</button>'
+    +(draft.editId?'<button class="delbtn" data-act="exp-del-sheet">이 지출 삭제</button>':"");
+  var a=document.getElementById("amtInput");
+  if(a) a.addEventListener("input", function(){ draft.amt=this.value; });
+  var n=document.getElementById("noteInput");
+  if(n) n.addEventListener("input", function(){ draft.note=this.value; });
+}
+function refreshSheetChips(){
+  var el=document.getElementById("sheet");
+  el.querySelectorAll('[data-act="sheet-cur"]').forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-v")===draft.cur); });
+  el.querySelectorAll('[data-act="sheet-cat"]').forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-v")===draft.cat); });
+  el.querySelectorAll('[data-act="sheet-pay"]').forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-v")===draft.pay); });
+  el.querySelectorAll('[data-act="sheet-day"]').forEach(function(b){ b.classList.toggle("on", +b.getAttribute("data-v")===draft.day); });
+  var s=el.querySelector(".amtrow .cur");
+  if(s) s.textContent = draft.cur==="JPY" ? "¥" : "₩";
+}
+function saveExpense(){
+  var digits=String(draft.amt).replace(/[^0-9]/g,"");
+  var amt=parseInt(digits,10);
+  if(!amt || amt<=0){ toast("금액을 넣어 주세요"); return; }
+  if(draft.editId){
+    var e=getExp(draft.editId);
+    if(e){ e.cur=draft.cur; e.amount=amt; e.cat=draft.cat; e.pay=draft.pay; e.day=draft.day; e.note=draft.note; }
+  } else {
+    state.expenses.push({
+      id:"e"+Date.now()+Math.floor(Math.random()*1000),
+      cur:draft.cur, amount:amt, cat:draft.cat, pay:draft.pay, day:draft.day, note:draft.note
+    });
+  }
+  state.lastPay={cur:draft.cur, pay:draft.pay};
+  save();
+  closeSheet();
+  render();
+  toast("기록했어요 · "+draft.cat+" "+(draft.cur==="JPY"?jpy(amt):won(amt)));
+}
+</script>
+<script>
+"use strict";
+/* ================= 화면 1 (여행 정보 입력) ================= */
+var STEP_NAMES = ["어디로","언제","예약","취향"];
+var MOODS = ["온천","도시","자연","미식","쇼핑","바다"];
+var MEALS = ["조식 포함","조식 미포함","모름"];
+var HOTELPAYS = ["카드","현금","모름"];
+var PHONES = ["아이폰","안드로이드"];
+var AVOIDS = ["단체 관광객 많은 곳","이른 기상","긴 도보","매운 음식","긴 줄","야간 이동"];
+
+function chipHTML(act, group, value, on, extra){
+  return '<button class="chip'+(on?" on":"")+'" data-act="'+act+'"'+(group?' data-group="'+group+'"':"")+' data-v="'+esc(value)+'" aria-pressed="'+(on?"true":"false")+'">'+esc(value)+'</button>';
+}
+function renderForm(){
+  var t=state.trip;
+  document.getElementById("stepdots").innerHTML = STEP_NAMES.map(function(n,i){
+    var num=i+1, cls = num===state.editStep?"now":(num<state.editStep?"done":"");
+    return '<div class="stepdot '+cls+'"><div class="c">'+num+'</div><div class="n">'+n+'</div></div>';
+  }).join("");
+
+  document.getElementById("destChips").innerHTML = ["삿포로","미정"].map(function(v){
+    return chipHTML("s1-dest","",v,t.dest===v);
+  }).join("");
+  var moodWrap=document.getElementById("moodWrap");
+  moodWrap.style.display = t.dest==="미정" ? "block" : "none";
+  document.getElementById("moodChips").innerHTML = MOODS.map(function(v){
+    return chipHTML("s1-chip","mood",v,(t.mood||[]).indexOf(v)>=0).replace('class="chip','class="chip');
+  }).join("");
+  document.getElementById("mealChips").innerHTML = MEALS.map(function(v){ return chipHTML("s1-chip","meal",v,t.meals===v); }).join("");
+  document.getElementById("payChips").innerHTML = HOTELPAYS.map(function(v){ return chipHTML("s1-chip","hotelpay",v,t.hotelPay===v); }).join("");
+  document.getElementById("phoneChips").innerHTML = PHONES.map(function(v){ return chipHTML("s1-chip","phone",v,t.phone===v); }).join("");
+  document.getElementById("avoidChips").innerHTML = AVOIDS.map(function(v){ return chipHTML("s1-chip","avoid",v,(t.avoid||[]).indexOf(v)>=0); }).join("");
+
+  document.getElementById("f_airport").value = t.airport||"";
+  document.getElementById("f_start").value = t.start||"";
+  document.getElementById("f_end").value = t.end||"";
+  document.getElementById("f_people").value = t.people||2;
+  document.getElementById("f_budget").value = t.perPerson||"";
+  document.getElementById("f_flight").value = t.flight||"";
+  document.getElementById("f_hotel").value = t.hotel||"";
+  document.getElementById("f_pass").value = t.pass||"";
+  document.getElementById("f_benefit").value = t.benefits||"";
+  document.getElementById("f_want").value = t.want||"";
+  document.getElementById("f_avoidEtc").value = t.avoidEtc||"";
+
+  Array.prototype.forEach.call(document.querySelectorAll(".step"), function(s){
+    s.classList.toggle("on", +s.getAttribute("data-step")===state.editStep);
+  });
+  document.getElementById("err1").classList.remove("on");
+  document.getElementById("err2").classList.remove("on");
+  document.getElementById("skipBtn").style.display = state.editStep>=3 ? "inline-flex" : "none";
+  document.getElementById("nextBtn").textContent = state.editStep>=4 ? "완료" : "다음";
+}
+function val(id){ var el=document.getElementById(id); return el ? el.value : ""; }
+function captureForm(){
+  var t=state.trip;
+  t.airport=val("f_airport"); t.start=val("f_start"); t.end=val("f_end");
+  var p=parseInt(val("f_people"),10); t.people=(p&&p>0)?p:2;
+  var b=parseInt(String(val("f_budget")).replace(/[^0-9]/g,""),10); t.perPerson=b||0;
+  t.flight=val("f_flight"); t.hotel=val("f_hotel"); t.pass=val("f_pass");
+  t.benefits=val("f_benefit"); t.want=val("f_want"); t.avoidEtc=val("f_avoidEtc");
+  if(t.dest!=="삿포로" && t.dest!=="미정") t.dest="삿포로";
+  if(!Array.isArray(t.mood)) t.mood=[];
+  if(!Array.isArray(t.avoid)) t.avoid=[];
+}
+function daysBetween(a,b){
+  try{ return Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5)+1; }catch(e){ return 0; }
+}
+function validateStep(step){
+  var t=state.trip;
+  if(step===1){
+    if(t.dest==="미정" && (!t.mood || t.mood.length===0)){
+      document.getElementById("err1").classList.add("on");
+      document.getElementById("err1").textContent="여행지를 고르거나, 미정이면 원하는 분위기를 1개 이상 골라 주세요.";
+      return false;
+    }
+    return true;
+  }
+  if(step===2){
+    var err=document.getElementById("err2");
+    if(!t.start || !t.end){ err.textContent="시작 날짜와 종료 날짜를 넣어 주세요."; err.classList.add("on"); return false; }
+    if(t.end<t.start){ err.textContent="종료 날짜가 시작 날짜보다 빨라요. 날짜를 바꿔 주세요."; err.classList.add("on"); return false; }
+    if(daysBetween(t.start,t.end)>21){ err.textContent="한 번에 21일까지만 잡을 수 있어요. 기간을 줄여 주세요."; err.classList.add("on"); return false; }
+    if(!t.people || t.people<1){ err.textContent="인원을 1명 이상으로 넣어 주세요."; err.classList.add("on"); return false; }
+    return true;
+  }
+  return true;
+}
+function formPrev(){
+  captureForm();
+  if(state.editStep>1){ state.editStep--; save(); render(); window.scrollTo(0,0); }
+  else { state.screen="main"; save(); render(); window.scrollTo(0,0); }
+}
+function formNext(){
+  captureForm();
+  if(!validateStep(state.editStep)){ return; }
+  if(state.editStep<4){ state.editStep++; save(); render(); window.scrollTo(0,0); return; }
+  finishForm();
+}
+function finishForm(){
+  captureForm();
+  state.screen="main"; state.tab="schedule";
+  save(); render(); window.scrollTo(0,0);
+  toast("여행 정보를 저장했어요");
+}
+function toggleFormChip(group,v){
+  var t=state.trip;
+  if(group==="mood"){
+    t.mood=t.mood||[];
+    var i=t.mood.indexOf(v);
+    if(i>=0) t.mood.splice(i,1);
+    else { if(t.mood.length>=3){ toast("분위기는 최대 3개까지 고를 수 있어요"); return; } t.mood.push(v); }
+  } else if(group==="avoid"){
+    t.avoid=t.avoid||[];
+    var j=t.avoid.indexOf(v);
+    if(j>=0) t.avoid.splice(j,1); else t.avoid.push(v);
+  } else if(group==="meal"){ t.meals=v; }
+  else if(group==="hotelpay"){ t.hotelPay=v; }
+  else if(group==="phone"){ t.phone=v; }
+  captureFormKeepChips();
+  save(); render();
+}
+function captureFormKeepChips(){
+  var t=state.trip;
+  t.airport=val("f_airport"); t.start=val("f_start"); t.end=val("f_end");
+  var p=parseInt(val("f_people"),10); if(p&&p>0) t.people=p;
+  var b=parseInt(String(val("f_budget")).replace(/[^0-9]/g,""),10); if(b) t.perPerson=b;
+  t.flight=val("f_flight"); t.hotel=val("f_hotel"); t.pass=val("f_pass");
+  t.benefits=val("f_benefit"); t.want=val("f_want"); t.avoidEtc=val("f_avoidEtc");
+}
+
+/* ================= 홈 목록 조작 ================= */
+function toggleItem(kind,id){
+  var list=kind==="todo"?state.todo:state.pack;
+  for(var i=0;i<list.length;i++){ if(list[i].id===id){ list[i].done=!list[i].done; break; } }
+  save(); render();
+}
+function delItem(kind,id){
+  if(kind==="todo") state.todo=state.todo.filter(function(x){ return x.id!==id; });
+  else state.pack=state.pack.filter(function(x){ return x.id!==id; });
+  save(); render();
+}
+function addItem(kind,text){
+  var t=(text||"").trim();
+  if(!t){ toast("내용을 넣어 주세요"); return; }
+  var item={id:kind.charAt(0)+Date.now(), text:t, done:false};
+  if(kind==="todo") state.todo.push(item); else state.pack.push(item);
+  save(); render();
+  var el=document.getElementById("add_"+kind);
+  if(el) el.focus();
+}
+
+/* ================= 지출 삭제 ================= */
+var delTimer=null;
+function delExpense(id){
+  state.expenses=state.expenses.filter(function(e){ return e.id!==id; });
+  state.pendingDel=null;
+}
+function confirmDel(id){
+  if(state.pendingDel===id){
+    delExpense(id); save(); render(); toast("삭제했어요");
+    return;
+  }
+  state.pendingDel=id; render(); toast("한 번 더 누르면 삭제돼요");
+  if(delTimer) clearTimeout(delTimer);
+  delTimer=setTimeout(function(){ state.pendingDel=null; render(); }, 5000);
+}
+
+/* ================= 복사 ================= */
+function fallbackCopy(){
+  var box=document.getElementById("summaryBox");
+  try{
+    var r=document.createRange(); r.selectNodeContents(box);
+    var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }catch(e){}
+  toast("길게 눌러 복사하세요");
+}
+function copySummary(){
+  var txt=summaryText()+"\n\n이 정보로 일정을 확정해서 앱을 업데이트해줘";
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast("요약을 복사했어요"); }, function(){ fallbackCopy(); });
+      return;
+    }
+  }catch(e){}
+  fallbackCopy();
+}
+
+/* ================= 사진 ================= */
+function handlePhoto(file){
+  if(!file || !/^image\//.test(file.type)){ toast("이미지 파일을 골라 주세요"); return; }
+  var reader=new FileReader();
+  reader.onerror=function(){ toast("사진을 읽을 수 없어요"); };
+  reader.onload=function(){
+    var img=new Image();
+    img.onerror=function(){ toast("사진을 열 수 없어요"); };
+    img.onload=function(){
+      try{
+        var max=1000, w=img.width||1, h=img.height||1, sc=Math.min(1, max/Math.max(w,h));
+        var c=document.createElement("canvas");
+        c.width=Math.max(1,Math.round(w*sc)); c.height=Math.max(1,Math.round(h*sc));
+        var ctx=c.getContext("2d");
+        ctx.drawImage(img,0,0,c.width,c.height);
+        var data=c.toDataURL("image/jpeg",0.82);
+        if(store.set(PHOTO_KEY, data)){ toast("사진을 저장했어요"); render(); }
+        else { toast("이 기기에 사진을 저장하지 못했어요"); }
+      }catch(err){ toast("사진을 저장하지 못했어요"); }
+    };
+    img.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ================= 탭바 ================= */
+var TABS=[
+  {id:"schedule", label:"일정", icon:'<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3M8 17h6"/>'},
+  {id:"spots", label:"맛집·관광", icon:'<path d="M7 3v7a2 2 0 0 0 2 2v9M7 3v7M11 3v7"/><path d="M17 3c-1.4 1.8-2 3.6-2 6 0 1.4.6 2.2 2 2.5V21"/>'},
+  {id:"home", label:"홈", icon:'<path d="M4 11.2 12 4l8 7.2V20h-5.5v-5.5h-5V20H4z"/>'},
+  {id:"lodging", label:"숙소", icon:'<path d="M3 19v-7h18v7M3 12V6"/><path d="M6 12V9.5A1.5 1.5 0 0 1 7.5 8h4A1.5 1.5 0 0 1 13 9.5V12"/><path d="M2.5 19h19"/>'},
+  {id:"ledger", label:"가계부", icon:'<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M16.5 14.5h1.5"/>'}
+];
+
+/* ================= 렌더 ================= */
+function render(){
+  document.getElementById("screen1").classList.toggle("on", state.screen==="form");
+  document.getElementById("screen2").classList.toggle("on", state.screen!=="form");
+  if(state.screen==="form"){ renderForm(); return; }
+
+  var st=state.trip.start||"", en=state.trip.end||"";
+  var lab=(state.trip.destEn||"TRIP")+" · "+st.slice(5).replace("-",".")+" – "+en.slice(5).replace("-",".");
+  document.getElementById("topLabel").textContent=lab;
+  document.getElementById("topDates").textContent=st.replace(/-/g,".")+" – "+en.slice(5).replace("-",".")+" · "+state.trip.people+"명";
+
+  document.getElementById("tabbar").innerHTML=TABS.map(function(t){
+    var on=state.tab===t.id;
+    return '<button class="tb'+(on?" on":"")+'" data-act="tab" data-tab="'+t.id+'" aria-current="'+(on?"page":"false")+'">'
+      +'<svg viewBox="0 0 24 24" aria-hidden="true">'+t.icon+'</svg>'
+      +'<span>'+t.label+'</span></button>';
+  }).join("");
+
+  var p=document.getElementById("panel");
+  if(state.tab==="schedule") p.innerHTML=scheduleHTML();
+  else if(state.tab==="spots") p.innerHTML=spotsHTML();
+  else if(state.tab==="home") p.innerHTML=homeHTML();
+  else if(state.tab==="lodging") p.innerHTML=lodgingHTML();
+  else p.innerHTML=ledgerHTML();
+
+  document.getElementById("fab").classList.toggle("show", state.tab==="ledger" || tripOngoing());
+  attachHandlers();
+  onScroll();
+}
+
+function attachHandlers(){
+  var fx=document.getElementById("fxin");
+  if(fx){
+    fx.addEventListener("input", function(){
+      var v=parseInt(String(this.value).replace(/[^0-9]/g,""),10);
+      var out=document.getElementById("fxout");
+      if(out) out.textContent = v ? won(yen2krw(v)) : "0원";
+    });
+  }
+  var ph=document.getElementById("photoInput");
+  if(ph){
+    ph.addEventListener("change", function(){
+      if(this.files && this.files[0]) handlePhoto(this.files[0]);
+    });
+  }
+  ["todo","pack"].forEach(function(kind){
+    var el=document.getElementById("add_"+kind);
+    if(el){
+      el.addEventListener("keydown", function(e){
+        if(e.key==="Enter"){ e.preventDefault(); addItem(kind, this.value); }
+      });
+    }
+  });
+}
+
+function onScroll(){
+  var els=document.querySelectorAll(".stamps");
+  for(var i=0;i<els.length;i++){
+    var r=els[i].getBoundingClientRect();
+    els[i].classList.toggle("compact", r.top<=1);
+  }
+}
+
+/* ================= 이벤트 ================= */
+document.addEventListener("click", function(ev){
+  var el = ev.target && ev.target.closest ? ev.target.closest("[data-act]") : null;
+  if(!el) return;
+  var act=el.getAttribute("data-act");
+  var v=el.getAttribute("data-v");
+  var id=el.getAttribute("data-id");
+  switch(act){
+    case "tab": state.tab=el.getAttribute("data-tab"); save(); render(); window.scrollTo(0,0); break;
+    case "day": state.day=parseInt(el.getAttribute("data-day"),10)||1; state.pendingDel=null; save(); render(); break;
+    case "toggle-tile":
+      var tile=el.getAttribute("data-tile");
+      state.openTile=(state.openTile===tile)?"":tile;
+      save(); render();
+      break;
+    case "todo-check": toggleItem("todo",id); break;
+    case "pack-check": toggleItem("pack",id); break;
+    case "todo-del": delItem("todo",id); break;
+    case "pack-del": delItem("pack",id); break;
+    case "todo-add": addItem("todo", (document.getElementById("add_todo")||{}).value); break;
+    case "pack-add": addItem("pack", (document.getElementById("add_pack")||{}).value); break;
+    case "edit-trip": state.screen="form"; state.editStep=1; save(); render(); window.scrollTo(0,0); break;
+    case "copy-summary": copySummary(); break;
+    case "quick-open": openSheet(null); break;
+    case "quick-close": closeSheet(); break;
+    case "quick-save": saveExpense(); break;
+    case "sheet-cur": draft.cur=v; refreshSheetChips(); break;
+    case "sheet-cat": draft.cat=v; refreshSheetChips(); break;
+    case "sheet-pay": draft.pay=v; refreshSheetChips(); break;
+    case "sheet-day": draft.day=parseInt(v,10)||1; refreshSheetChips(); break;
+    case "exp-edit": openSheet(id); break;
+    case "exp-del": confirmDel(id); break;
+    case "exp-del-sheet": delExpense(draft.editId); save(); closeSheet(); render(); toast("삭제했어요"); break;
+    case "s1-dest": captureForm(); state.trip.dest=v; save(); render(); break;
+    case "s1-chip": captureFormKeepChips(); toggleFormChip(el.getAttribute("data-group"), v); break;
+    case "s1-prev": formPrev(); break;
+    case "s1-next": formNext(); break;
+    case "s1-skip":
+      captureForm();
+      if(state.editStep<4){ state.editStep++; save(); render(); window.scrollTo(0,0); }
+      else { finishForm(); }
+      break;
+  }
+});
+
+document.addEventListener("keydown", function(ev){
+  if(ev.key==="Escape"){
+    var w=document.getElementById("sheetwrap");
+    if(w && w.classList.contains("open")) closeSheet();
+  }
+});
+
+window.addEventListener("scroll", onScroll, {passive:true});
+window.addEventListener("resize", onScroll);
+
+/* 시작: 열자마자 화면 2(일정 탭, 확정) */
+render();
+</script>
+</body>
+</html>
